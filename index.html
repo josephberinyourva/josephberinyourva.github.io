@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Joseph Nacion Berin — Executive and E-commerce Virtual Assistant providing organized, reliable remote support.">
+  <meta name="theme-color" content="#07111f">
+  <title>Joseph Berin | Executive &amp; E-commerce Virtual Assistant</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%2307111f'/%3E%3Cpath d='M17 16h12v25c0 8-5 12-12 10v-8c3 1 4-1 4-4V24h-4zm17 0h9c8 0 13 3 13 9 0 4-2 6-5 7 4 1 6 4 6 8 0 8-6 11-15 11h-8zm8 14h2c3 0 4-1 4-4s-2-3-5-3h-1zm0 14h2c4 0 5-1 5-4s-2-4-6-4h-1z' fill='%23c9ff5f'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #07111f;
+      --panel: #0d1a2c;
+      --panel-2: #12223a;
+      --paper: #f3f6fb;
+      --white: #ffffff;
+      --text: #152238;
+      --muted: #66748a;
+      --line: #dce3ee;
+      --blue: #486cff;
+      --cyan: #27d9d4;
+      --lime: #c9ff5f;
+      --orange: #ffb454;
+      --green: #36cf7c;
+      --shadow: 0 28px 80px rgba(7, 17, 31, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font: 16px/1.6 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; }
+    .shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 16px; font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+    .muted { color: var(--muted); }
+
+    .nav-wrap {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      border-bottom: 1px solid rgba(220, 227, 238, .78);
+      background: rgba(243, 246, 251, .82);
+      backdrop-filter: blur(18px);
+    }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 850; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: var(--ink); color: var(--lime); font-size: .8rem; font-weight: 950; box-shadow: 0 8px 24px rgba(7,17,31,.15); }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .88rem; font-weight: 750; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { padding: 10px 15px; border-radius: 11px; background: var(--ink); color: white; font-size: .82rem; font-weight: 850; }
+
+    .hero {
+      position: relative;
+      width: min(1240px, calc(100% - 24px));
+      min-height: 690px;
+      margin: 18px auto 0;
+      padding: 72px max(34px, calc((100% - 1100px)/2));
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      align-items: center;
+      gap: 58px;
+      border-radius: 34px;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(72,108,255,.27), transparent 32%),
+        radial-gradient(circle at 96% 10%, rgba(39,217,212,.15), transparent 30%),
+        var(--ink);
+    }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to right, black, transparent 75%); }
+    .hero-copy, .command-center { position: relative; z-index: 1; }
+    .availability { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: #c7d2e4; font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
+    .live-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(54,207,124,.12); animation: pulse 2s infinite; }
+    h1 { max-width: 590px; margin: 0; font-size: clamp(3.5rem, 6vw, 6.2rem); line-height: .93; letter-spacing: -.065em; }
+    h1 span { color: var(--lime); font-family: Georgia, serif; font-weight: 400; font-style: italic; }
+    .hero-copy > p:not(.availability) { max-width: 570px; margin: 27px 0 0; color: #afbdd1; font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .btn { min-height: 51px; padding: 0 20px; border: 1px solid transparent; border-radius: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: .86rem; font-weight: 900; transition: .22s ease; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--lime); color: var(--ink); box-shadow: 0 15px 40px rgba(201,255,95,.14); }
+    .btn-ghost { border-color: rgba(255,255,255,.18); color: white; }
+    .hero-meta { margin-top: 29px; display: flex; flex-wrap: wrap; gap: 20px; color: #8291a8; font-size: .78rem; font-weight: 700; }
+
+    .command-center { perspective: 1200px; }
+    .app-window { border: 1px solid rgba(255,255,255,.13); border-radius: 22px; overflow: hidden; background: #f8fafe; color: var(--text); box-shadow: 0 40px 100px rgba(0,0,0,.42); transform: rotateY(-4deg) rotateX(2deg); transition: transform .35s ease; }
+    .app-window:hover { transform: rotateY(0) rotateX(0) translateY(-4px); }
+    .window-bar { height: 49px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: white; border-bottom: 1px solid var(--line); }
+    .traffic { display: flex; gap: 6px; }
+    .traffic i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b62; }
+    .traffic i:nth-child(2) { background: #ffbd45; }
+    .traffic i:nth-child(3) { background: #31c953; }
+    .window-title { font-size: .68rem; color: var(--muted); font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+    .window-body { min-height: 470px; display: grid; grid-template-columns: 78px 1fr; }
+    .sidebar { padding: 17px 12px; background: #0e1b2e; color: #74849d; display: flex; flex-direction: column; align-items: center; gap: 13px; }
+    .avatar { width: 45px; height: 45px; border-radius: 14px; object-fit: cover; object-position: center 20%; border: 2px solid var(--lime); margin-bottom: 8px; }
+    .side-icon { width: 39px; height: 39px; border: 0; border-radius: 11px; display: grid; place-items: center; background: transparent; color: #73839c; cursor: pointer; font-weight: 900; transition: .2s; }
+    .side-icon:hover, .side-icon.active { color: var(--lime); background: rgba(255,255,255,.08); }
+    .workspace { padding: 22px; overflow: hidden; }
+    .workspace-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 21px; }
+    .workspace-head small { display: block; color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .workspace-head strong { display: block; margin-top: 2px; font-size: 1rem; }
+    .demo-pill { padding: 6px 9px; border-radius: 999px; background: #edf1ff; color: var(--blue); font-size: .58rem; font-weight: 900; letter-spacing: .08em; }
+    .tab-panel { display: none; animation: rise .35s ease; }
+    .tab-panel.active { display: block; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat { padding: 13px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+    .stat small { color: var(--muted); font-size: .6rem; font-weight: 750; }
+    .stat b { display: block; margin-top: 3px; font-size: 1.18rem; }
+    .stat b.green { color: #168c50; }
+    .panel-card { margin-top: 13px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: white; }
+    .panel-title { padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); font-size: .68rem; font-weight: 900; }
+    .panel-title span { color: var(--blue); }
+    .mail { padding: 11px 14px; display: grid; grid-template-columns: 29px 1fr auto; gap: 10px; align-items: center; border-bottom: 1px solid #edf1f6; }
+    .mail:last-child { border: 0; }
+    .mail-icon { width: 29px; height: 29px; border-radius: 9px; display: grid; place-items: center; background: #eaf0ff; color: var(--blue); font-size: .66rem; font-weight: 900; }
+    .mail strong, .order strong { display: block; font-size: .68rem; line-height: 1.3; }
+    .mail small, .order small { display: block; color: var(--muted); font-size: .57rem; }
+    .mail time { color: var(--muted); font-size: .55rem; }
+    .week { display: grid; grid-template-columns: 47px repeat(5,1fr); font-size: .54rem; }
+    .week > span { padding: 9px 3px; text-align: center; color: var(--muted); font-weight: 850; border-bottom: 1px solid var(--line); }
+    .schedule { position: relative; height: 200px; background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, #edf1f6 40px); }
+    .schedule::after { content: ""; position: absolute; inset: 0 0 0 47px; background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), #edf1f6 20%); }
+    .time-list { position: absolute; z-index: 2; inset: 0 auto 0 0; width: 47px; display: grid; grid-template-rows: repeat(5,40px); color: #9aa5b5; font-size: .48rem; }
+    .time-list span { padding: 4px 0 0 6px; }
+    .event { position: absolute; z-index: 3; padding: 5px 6px; border-radius: 6px; font-size: .5rem; font-weight: 850; line-height: 1.2; }
+    .e1 { left: 21%; top: 8px; width: 14%; background: #e2e9ff; color: #3559d6; }
+    .e2 { left: 37%; top: 48px; width: 30%; background: #dff8f6; color: #087d79; }
+    .e3 { left: 69%; top: 89px; width: 14%; background: #eff9cc; color: #657c0d; }
+    .e4 { left: 85%; top: 130px; width: 13%; background: #ffe9d3; color: #9b5a17; }
+    .orders-head, .order { padding: 10px 13px; display: grid; grid-template-columns: 1fr .7fr .65fr; align-items: center; gap: 8px; }
+    .orders-head { background: #f7f9fc; color: var(--muted); font-size: .54rem; font-weight: 900; }
+    .order { border-top: 1px solid #edf1f6; }
+    .tag { width: fit-content; padding: 4px 7px; border-radius: 999px; font-size: .5rem; font-weight: 900; }
+    .tag.shipped { background: #e7f8ee; color: #19844d; }
+    .tag.processing { background: #fff2dd; color: #9b641e; }
+    .tag.new { background: #e8edff; color: #405dc7; }
+    .floating-note { position: absolute; z-index: 2; right: -18px; bottom: -24px; width: 220px; padding: 14px; border: 1px solid rgba(255,255,255,.15); border-radius: 15px; background: rgba(15,28,47,.94); backdrop-filter: blur(15px); box-shadow: 0 20px 50px rgba(0,0,0,.3); color: white; animation: float 4s ease-in-out infinite; }
+    .floating-note small { display: block; color: var(--cyan); font-size: .6rem; font-weight: 900; letter-spacing: .1em; }
+    .floating-note strong { display: block; margin-top: 3px; font-size: .76rem; }
+
+    .trust { padding: 30px 0; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .trust-item { padding: 16px 18px; border-left: 1px solid var(--line); }
+    .trust-item:first-child { border-left: 0; }
+    .trust-item b { display: block; font-size: 1.25rem; letter-spacing: -.03em; }
+    .trust-item span { color: var(--muted); font-size: .72rem; font-weight: 750; }
+
+    .section { padding: 112px 0 0; }
+    .section-head { display: grid; grid-template-columns: 1fr .75fr; align-items: end; gap: 55px; }
+    h2 { margin: 0; max-width: 750px; font-size: clamp(2.5rem, 4.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; }
+    .section-head > p { margin: 0 0 7px; color: var(--muted); }
+    .service-grid { margin-top: 45px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .service { position: relative; padding: 35px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: 0 18px 60px rgba(7,17,31,.055); }
+    .service::after { content: attr(data-number); position: absolute; top: -35px; right: 12px; color: #f0f3f8; font-size: 8rem; line-height: 1; font-weight: 950; }
+    .service-icon { position: relative; z-index: 1; width: 47px; height: 47px; display: grid; place-items: center; border-radius: 14px; background: #eaf0ff; color: var(--blue); font-weight: 900; }
+    .service.ecom .service-icon { background: #e3fafa; color: #087f7c; }
+    .service h3 { position: relative; z-index: 1; margin: 25px 0 6px; font-size: 1.55rem; letter-spacing: -.035em; }
+    .service > p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: .88rem; }
+    .service ul { position: relative; z-index: 1; margin: 25px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .service li { display: flex; gap: 8px; color: #3c4b60; font-size: .78rem; font-weight: 700; }
+    .service li::before { content: "✓"; color: var(--blue); font-weight: 950; }
+    .service.ecom li::before { color: #079995; }
+
+    .case-section { padding-bottom: 112px; }
+    .case-grid { margin-top: 45px; display: grid; grid-template-columns: 1.12fr .88fr; gap: 22px; }
+    .case { min-height: 340px; padding: 31px; border-radius: 24px; overflow: hidden; background: white; border: 1px solid var(--line); }
+    .case.large { grid-row: span 2; min-height: 704px; color: white; background: var(--panel); border: 0; }
+    .case-label { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: .64rem; font-weight: 950; letter-spacing: .1em; text-transform: uppercase; }
+    .large .case-label { color: var(--cyan); }
+    .case-label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .case h3 { margin: 18px 0 7px; font-size: 1.65rem; letter-spacing: -.04em; }
+    .case p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .large p { color: #9caac0; }
+    .project-meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .project-meta span { padding: 5px 8px; border-radius: 7px; background: #f1f4f9; color: #64738a; font-size: .58rem; font-weight: 850; }
+    .large .project-meta span { background: rgba(255,255,255,.07); color: #a9b7ca; }
+    .inbox-preview { margin-top: 30px; border-radius: 17px; overflow: hidden; background: #f7f9fc; color: var(--text); transform: rotate(-1deg); box-shadow: 0 26px 65px rgba(0,0,0,.25); }
+    .preview-top { padding: 13px 15px; display: flex; align-items: center; justify-content: space-between; background: white; border-bottom: 1px solid var(--line); font-size: .62rem; font-weight: 900; }
+    .preview-search { width: 45%; height: 22px; border-radius: 7px; background: #eef2f7; }
+    .preview-mail { padding: 13px 15px; display: grid; grid-template-columns: 8px 1fr auto; gap: 11px; align-items: start; border-bottom: 1px solid #e7ecf3; }
+    .preview-mail i { width: 7px; height: 7px; margin-top: 5px; border-radius: 50%; background: var(--blue); }
+    .preview-mail strong { display: block; font-size: .65rem; }
+    .preview-mail span { display: block; color: var(--muted); font-size: .56rem; }
+    .preview-mail time { color: var(--muted); font-size: .52rem; }
+    .workflow { margin-top: 35px; }
+    .workflow-step { position: relative; padding: 0 0 25px 38px; }
+    .workflow-step::before { content: ""; position: absolute; left: 12px; top: 22px; bottom: 0; width: 1px; background: rgba(255,255,255,.14); }
+    .workflow-step:last-child::before { display: none; }
+    .workflow-step > i { position: absolute; left: 0; top: 0; width: 25px; height: 25px; border-radius: 8px; display: grid; place-items: center; background: rgba(201,255,95,.12); color: var(--lime); font-size: .58rem; font-style: normal; font-weight: 900; }
+    .workflow-step strong { display: block; font-size: .75rem; }
+    .workflow-step span { color: #8190a7; font-size: .62rem; }
+    .mini-tracker { margin-top: 24px; border: 1px solid var(--line); border-radius: 13px; overflow: hidden; }
+    .mini-row { padding: 10px 12px; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); font-size: .64rem; }
+    .mini-row:last-child { border: 0; }
+    .mini-row b { font-size: .67rem; }
+    .reply { margin-top: 24px; padding: 15px; border-radius: 13px; background: #f5f8fc; color: #526177; font-size: .68rem; }
+    .reply b { display: block; margin-bottom: 5px; color: var(--text); }
+
+    .about-wrap { padding: 76px; display: grid; grid-template-columns: 280px 1fr; gap: 65px; align-items: center; border-radius: 30px; color: white; background: var(--ink); }
+    .photo-card { position: relative; }
+    .photo-card img { width: 100%; height: 390px; display: block; object-fit: cover; object-position: center 20%; border-radius: 23px; filter: saturate(.9); }
+    .photo-card::after { content: "2+ YEARS\A DATA HANDLING"; white-space: pre; position: absolute; right: -25px; bottom: 25px; padding: 14px 16px; border-radius: 13px; background: var(--lime); color: var(--ink); font-size: .65rem; line-height: 1.45; font-weight: 950; letter-spacing: .08em; box-shadow: 0 16px 40px rgba(0,0,0,.25); }
+    .about-copy .eyebrow { color: var(--cyan); }
+    .about-copy h2 { font-size: clamp(2.4rem, 4vw, 4rem); }
+    .about-copy > p:not(.eyebrow) { color: #aab7c9; }
+    .experience { margin-top: 25px; padding: 20px; border: 1px solid rgba(255,255,255,.11); border-radius: 15px; background: rgba(255,255,255,.055); }
+    .experience small { color: var(--cyan); font-size: .62rem; font-weight: 900; letter-spacing: .1em; }
+    .experience strong { display: block; margin-top: 7px; }
+    .experience span { display: block; color: #92a0b4; font-size: .7rem; }
+    .tools { padding: 38px 0 0; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .tool-list span { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #4d5c72; font-size: .72rem; font-weight: 800; }
+
+    .contact { margin: 112px auto 30px; padding: 69px; border-radius: 30px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 35px; color: white; background: linear-gradient(135deg, #3657e9, #523bd0); overflow: hidden; position: relative; }
+    .contact::after { content: "@"; position: absolute; right: 35px; top: -115px; color: rgba(255,255,255,.06); font-size: 19rem; font-weight: 950; }
+    .contact > * { position: relative; z-index: 1; }
+    .contact .eyebrow { color: #d7ddff; }
+    .contact p:not(.eyebrow) { max-width: 640px; color: #d9dfff; }
+    .contact .btn { background: var(--lime); color: var(--ink); }
+    .contact-details { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.2); display: flex; flex-wrap: wrap; gap: 25px; color: #d9dfff; font-size: .78rem; }
+    footer { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); font-size: .74rem; }
+
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 10px rgba(54,207,124,0); } }
+    @keyframes float { 50% { transform: translateY(-8px); } }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; padding-block: 65px 85px; }
+      .hero-copy { max-width: 760px; }
+      .command-center { max-width: 720px; width: 100%; margin: auto; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .case-grid { grid-template-columns: 1fr 1fr; }
+      .case.large { grid-column: 1/-1; grid-row: auto; min-height: 0; display: grid; grid-template-columns: .75fr 1.25fr; gap: 30px; }
+      .inbox-preview { margin-top: 0; }
+      .workflow { grid-column: 1/-1; }
+      .about-wrap { padding: 55px; grid-template-columns: 230px 1fr; }
+      .photo-card img { height: 340px; }
+    }
+
+    @media (max-width: 700px) {
+      .shell { width: calc(100% - 32px); }
+      nav { height: 68px; }
+      .nav-links { display: none; }
+      .hero { width: calc(100% - 14px); min-height: 0; margin-top: 7px; padding: 49px 21px 64px; border-radius: 24px; gap: 42px; }
+      h1 { font-size: clamp(3.35rem, 16vw, 5rem); }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .window-body { grid-template-columns: 56px 1fr; min-height: 430px; }
+      .sidebar { padding-inline: 7px; }
+      .avatar { width: 39px; height: 39px; }
+      .side-icon { width: 36px; }
+      .workspace { padding: 16px 12px; }
+      .stat-row { gap: 6px; }
+      .stat { padding: 9px; }
+      .stat b { font-size: .93rem; }
+      .floating-note { right: 8px; bottom: -36px; width: 190px; }
+      .trust { grid-template-columns: 1fr 1fr; }
+      .trust-item:nth-child(3) { border-left: 0; }
+      .section { padding-top: 85px; }
+      .service-grid, .case-grid { grid-template-columns: 1fr; }
+      .service { padding: 27px; }
+      .service ul { grid-template-columns: 1fr; }
+      .case.large { grid-column: auto; display: block; min-height: 0; }
+      .inbox-preview { margin-top: 28px; transform: none; }
+      .about-wrap { padding: 28px 22px; grid-template-columns: 1fr; }
+      .photo-card { max-width: 320px; }
+      .photo-card img { height: 390px; }
+      .contact { width: calc(100% - 14px); margin-top: 85px; padding: 48px 23px; grid-template-columns: 1fr; }
+      .contact-details { grid-column: auto; display: grid; }
+      footer { padding: 28px 0; flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* DARK NEON EDITION */
+    :root {
+      --paper: #050b14;
+      --white: #101b2b;
+      --text: #f0f5ff;
+      --muted: #93a3ba;
+      --line: rgba(164, 186, 220, .14);
+      --blue: #6683ff;
+    }
+    body {
+      background:
+        radial-gradient(circle at 8% 18%, rgba(72,108,255,.12), transparent 27rem),
+        radial-gradient(circle at 92% 50%, rgba(39,217,212,.08), transparent 30rem),
+        #050b14;
+      color: var(--text);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      inset: -20%;
+      pointer-events: none;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(72,108,255,.07), rgba(39,217,212,.04), transparent 28%, rgba(201,255,95,.04), rgba(72,108,255,.07));
+      filter: blur(80px);
+      animation: aurora 18s linear infinite;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(circle at center, black, transparent 82%);
+    }
+    .nav-wrap, main, footer { position: relative; z-index: 2; }
+    .nav-wrap { border-color: var(--line); background: rgba(5,11,20,.72); }
+    .nav-cta { background: var(--lime); color: var(--ink); box-shadow: 0 0 28px rgba(201,255,95,.16); }
+    .scroll-progress { position: fixed; z-index: 100; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--cyan), var(--lime)); box-shadow: 0 0 16px var(--cyan); }
+    .cursor-glow { position: fixed; z-index: 1; left: 0; top: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; pointer-events: none; opacity: .18; background: radial-gradient(circle, rgba(102,131,255,.5), transparent 65%); filter: blur(20px); transform: translate3d(-1000px,-1000px,0); }
+    .hero { border: 1px solid rgba(164,186,220,.15); box-shadow: inset 0 1px rgba(255,255,255,.06), 0 45px 120px rgba(0,0,0,.35); }
+    .hero::after { content: ""; position: absolute; width: 330px; height: 330px; right: -100px; top: -110px; border-radius: 50%; border: 1px solid rgba(39,217,212,.17); box-shadow: 0 0 0 55px rgba(39,217,212,.025), 0 0 0 110px rgba(102,131,255,.018); animation: orbit 13s ease-in-out infinite alternate; }
+    h1 span { text-shadow: 0 0 35px rgba(201,255,95,.16); }
+    .btn-primary { position: relative; overflow: hidden; }
+    .btn-primary::after { content: ""; position: absolute; inset: -60% auto -60% -45%; width: 38%; transform: rotate(20deg); background: rgba(255,255,255,.5); filter: blur(8px); animation: shine 4.5s ease-in-out infinite; }
+    .app-window { background: #0a1422; border-color: rgba(164,186,220,.18); box-shadow: 0 45px 130px rgba(0,0,0,.62), 0 0 55px rgba(72,108,255,.10); }
+    .window-bar { background: #101c2d; border-color: var(--line); }
+    .window-body { background: #0a1422; }
+    .workspace-head strong, .panel-title { color: #edf3ff; }
+    .demo-pill { background: rgba(102,131,255,.14); color: #9badff; }
+    .stat, .panel-card { background: #101c2d; border-color: var(--line); }
+    .mail, .order, .preview-mail { border-color: var(--line); }
+    .mail-icon { background: rgba(102,131,255,.14); color: #9badff; }
+    .week > span, .orders-head { border-color: var(--line); background: #0c1726; }
+    .schedule { background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, rgba(164,186,220,.1) 40px); }
+    .schedule::after { background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), rgba(164,186,220,.1) 20%); }
+    .trust { border-bottom: 1px solid var(--line); }
+    .trust-item { border-color: var(--line); }
+    .service, .case { background: linear-gradient(145deg, rgba(17,30,49,.94), rgba(9,18,31,.94)); border-color: rgba(164,186,220,.15); box-shadow: inset 0 1px rgba(255,255,255,.04), 0 24px 70px rgba(0,0,0,.23); transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transform-style: preserve-3d; transition: transform .16s ease, border-color .25s ease, box-shadow .25s ease; }
+    .service:hover, .case:not(.large):hover { border-color: rgba(102,131,255,.48); box-shadow: 0 26px 75px rgba(0,0,0,.35), 0 0 38px rgba(102,131,255,.09); }
+    .service::after { color: rgba(255,255,255,.025); }
+    .service-icon { background: rgba(102,131,255,.13); color: #9badff; box-shadow: inset 0 0 0 1px rgba(102,131,255,.18); }
+    .service.ecom .service-icon { background: rgba(39,217,212,.11); color: var(--cyan); }
+    .service > p, .case p { color: var(--muted); }
+    .service li { color: #c2cde0; }
+    .case.large { background: linear-gradient(145deg, #101f36, #07111f); border: 1px solid rgba(164,186,220,.14); }
+    .project-meta span, .tool-list span { background: rgba(255,255,255,.05); border: 1px solid var(--line); color: #aab8cb; }
+    .inbox-preview { background: #091321; color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,.46), 0 0 40px rgba(102,131,255,.06); }
+    .preview-top { background: #101c2d; border-color: var(--line); }
+    .preview-search { background: #1a2940; }
+    .mini-tracker { border-color: var(--line); }
+    .mini-row { border-color: var(--line); }
+    .reply { background: rgba(255,255,255,.05); color: #aebcd0; }
+    .reply b { color: #edf3ff; }
+    .about-wrap { border: 1px solid rgba(164,186,220,.15); background: radial-gradient(circle at 5% 50%, rgba(102,131,255,.15), transparent 32%), #07111f; box-shadow: 0 35px 100px rgba(0,0,0,.32); }
+    .photo-card img { border: 1px solid rgba(255,255,255,.16); box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+    .contact { box-shadow: 0 35px 100px rgba(40,49,170,.32); background: radial-gradient(circle at 15% 0, rgba(39,217,212,.24), transparent 35%), linear-gradient(135deg, #293fae, #5125a5); }
+    .contact::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 66%); transform: translateX(-100%); animation: sweep 8s ease-in-out infinite; }
+    .contact .btn { box-shadow: 0 18px 45px rgba(201,255,95,.18); }
+    @keyframes aurora { to { transform: rotate(360deg) scale(1.08); } }
+    @keyframes orbit { to { transform: translate(-45px,35px) scale(1.08); } }
+    @keyframes shine { 0%,65% { left: -45%; } 88%,100% { left: 130%; } }
+    @keyframes sweep { 0%,65% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    @media (max-width: 700px) { .cursor-glow { display: none; } .service, .case { transform: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="nav-wrap">
+    <nav class="shell" aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a>
+      <div class="nav-links"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a></div>
+      <a class="nav-cta" href="mailto:josephberin12356@gmail.com">Let’s talk ↗</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="availability"><span class="live-dot"></span> Available for remote opportunities</p>
+        <h1>Calm systems.<br><span>Clear results.</span></h1>
+        <p>I help busy executives and growing online stores stay organized—from schedules and inboxes to products, orders, and customer support.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:josephberin12356@gmail.com?subject=Virtual%20Assistant%20Opportunity">✉ Work with me</a>
+          <a class="btn btn-ghost" href="#work">Explore sample work ↓</a>
+        </div>
+        <div class="hero-meta"><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Flexible remote support</span></div>
+      </div>
+
+      <div class="command-center" aria-label="Interactive sample workspace">
+        <div class="app-window">
+          <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="window-title">Joseph’s VA Command Center</span><span></span></div>
+          <div class="window-body">
+            <aside class="sidebar" aria-label="Demo workspace tabs">
+              <img class="avatar" src="joseph-berin.jpeg" alt="Joseph Nacion Berin">
+              <button class="side-icon active" type="button" data-tab="inbox" aria-label="Show inbox demo" title="Inbox">✉</button>
+              <button class="side-icon" type="button" data-tab="calendar" aria-label="Show calendar demo" title="Calendar">▦</button>
+              <button class="side-icon" type="button" data-tab="store" aria-label="Show store demo" title="Store">▣</button>
+            </aside>
+
+            <div class="workspace">
+              <div class="workspace-head"><div><small>Good morning</small><strong>Here’s today at a glance.</strong></div><span class="demo-pill">SAMPLE WORKSPACE</span></div>
+
+              <div class="tab-panel active" id="inbox">
+                <div class="stat-row"><div class="stat"><small>Priority</small><b>3</b></div><div class="stat"><small>Follow-ups</small><b>4</b></div><div class="stat"><small>Organized</small><b class="green">✓</b></div></div>
+                <div class="panel-card">
+                  <div class="panel-title">Priority inbox <span>View all →</span></div>
+                  <div class="mail"><span class="mail-icon">AC</span><div><strong>Schedule confirmation</strong><small>Client meeting · action needed</small></div><time>9:12</time></div>
+                  <div class="mail"><span class="mail-icon">OP</span><div><strong>Order status request</strong><small>Customer support · reply drafted</small></div><time>8:45</time></div>
+                  <div class="mail"><span class="mail-icon">TM</span><div><strong>Weekly team update</strong><small>Summary and next steps</small></div><time>8:10</time></div>
+                </div>
+              </div>
+
+              <div class="tab-panel" id="calendar">
+                <div class="panel-card">
+                  <div class="panel-title">Weekly calendar <span>September 7–11</span></div>
+                  <div class="week"><span></span><span>MON 07</span><span>TUE 08</span><span>WED 09</span><span>THU 10</span><span>FRI 11</span></div>
+                  <div class="schedule"><div class="time-list"><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span></div><span class="event e1">Team sync</span><span class="event e2">Focus block</span><span class="event e3">Client call</span><span class="event e4">Review</span></div>
+                </div>
+              </div>
+
+              <div class="tab-panel" id="store">
+                <div class="stat-row"><div class="stat"><small>New orders</small><b>12</b></div><div class="stat"><small>To ship</small><b>5</b></div><div class="stat"><small>Low stock</small><b>2</b></div></div>
+                <div class="panel-card">
+                  <div class="panel-title">Order monitor <span>Sample data</span></div>
+                  <div class="orders-head"><span>Order</span><span>Customer</span><span>Status</span></div>
+                  <div class="order"><div><strong>#1048</strong><small>Canvas Tote</small></div><small>M. Santos</small><span class="tag shipped">Shipped</span></div>
+                  <div class="order"><div><strong>#1049</strong><small>Desk Lamp</small></div><small>A. Cruz</small><span class="tag processing">Processing</span></div>
+                  <div class="order"><div><strong>#1050</strong><small>Daily Planner</small></div><small>J. Reyes</small><span class="tag new">New</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-note"><small>EXECUTIVE + E-COMMERCE VA</small><strong>Detail-focused support, organized around your business.</strong></div>
+      </div>
+    </section>
+
+    <section class="trust shell" aria-label="Professional strengths">
+      <div class="trust-item"><b>2+ years</b><span>Data-handling experience</span></div>
+      <div class="trust-item"><b>Executive</b><span>Administrative support</span></div>
+      <div class="trust-item"><b>E-commerce</b><span>Store operations support</span></div>
+      <div class="trust-item"><b>Reliable</b><span>Organized communication</span></div>
+    </section>
+
+    <section class="section shell reveal" id="services">
+      <div class="section-head"><div><p class="eyebrow">01 · Services</p><h2>Support that gives you room to lead and grow.</h2></div><p>I handle the organized, behind-the-scenes work so you can focus on decisions, customers, and momentum.</p></div>
+      <div class="service-grid">
+        <article class="service" data-number="01"><div class="service-icon">✓</div><h3>Executive Assistance</h3><p>Reliable daily support for busy professionals and growing teams.</p><ul><li>Inbox organization</li><li>Calendar management</li><li>Meeting coordination</li><li>Research &amp; data gathering</li><li>File organization</li><li>Travel research</li></ul></article>
+        <article class="service ecom" data-number="02"><div class="service-icon">▣</div><h3>E-commerce Assistance</h3><p>Accurate store support from product listing to customer follow-up.</p><ul><li>Product listings</li><li>Competitor research</li><li>Inventory monitoring</li><li>Order tracking</li><li>Customer support</li><li>Store data entry</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section case-section shell reveal" id="work">
+      <div class="section-head"><div><p class="eyebrow">02 · Sample Work</p><h2>Realistic systems, built for real work.</h2></div><p>These self-initiated practice projects demonstrate how I organize information, prioritize tasks, and support day-to-day operations.</p></div>
+      <div class="case-grid">
+        <article class="case large">
+          <div><span class="case-label">Practice project</span><h3>Executive Inbox &amp; Daily Workflow</h3><p>A simple system for sorting messages, identifying priorities, drafting replies, and tracking follow-ups.</p><div class="project-meta"><span>Gmail</span><span>Google Calendar</span><span>Google Sheets</span></div></div>
+          <div class="inbox-preview"><div class="preview-top"><span>Priority Inbox</span><span class="preview-search"></span><span>3 open</span></div><div class="preview-mail"><i></i><div><strong>Approve Q3 meeting schedule</strong><span>Draft agenda and time options prepared</span></div><time>9:12</time></div><div class="preview-mail"><i></i><div><strong>Travel options for Manila</strong><span>Three options compared by time and cost</span></div><time>8:36</time></div><div class="preview-mail"><i></i><div><strong>Client follow-up</strong><span>Professional response ready for review</span></div><time>8:04</time></div></div>
+          <div class="workflow"><div class="workflow-step"><i>1</i><strong>Review and categorize</strong><span>Urgent, action needed, waiting, and reference.</span></div><div class="workflow-step"><i>2</i><strong>Prepare next actions</strong><span>Draft replies, create calendar holds, and log follow-ups.</span></div><div class="workflow-step"><i>3</i><strong>Send a clear summary</strong><span>Priorities, decisions needed, and completed items.</span></div></div>
+        </article>
+        <article class="case"><span class="case-label">Practice project</span><h3>Inventory &amp; Order Tracker</h3><p>A clean spreadsheet view for stock levels, order status, and low-stock alerts.</p><div class="project-meta"><span>Google Sheets</span><span>Data entry</span></div><div class="mini-tracker"><div class="mini-row"><span>Canvas Tote</span><b>42</b><span class="tag shipped">In stock</span></div><div class="mini-row"><span>Desk Lamp</span><b>8</b><span class="tag processing">Low stock</span></div><div class="mini-row"><span>Daily Planner</span><b>31</b><span class="tag shipped">In stock</span></div></div></article>
+        <article class="case"><span class="case-label">Practice project</span><h3>Customer Reply Library</h3><p>Friendly, professional response templates for order updates, returns, and product questions.</p><div class="project-meta"><span>Customer support</span><span>Canva</span></div><div class="reply"><b>Order update</b>Hi Alex, thank you for reaching out. I checked your order and it is now on the way. I’ll be happy to help if you need anything else.</div></article>
+      </div>
+    </section>
+
+    <section class="shell reveal" id="about">
+      <div class="about-wrap">
+        <div class="photo-card"><img src="joseph-berin.jpeg" alt="Joseph Nacion Berin wearing professional business attire"></div>
+        <div class="about-copy"><p class="eyebrow">03 · About Me</p><h2>Careful with the details. Committed to the outcome.</h2><p>I’m Joseph, a detail-oriented and tech-savvy Virtual Assistant from the Philippines. My data encoding background strengthened the skills that matter in remote support: accuracy, consistency, organization, and responsible handling of business information.</p><p>I’m ready to learn your systems, communicate clearly, and become the dependable support behind your day-to-day operations.</p><div class="experience"><small>RELEVANT EXPERIENCE</small><strong>Data Encoder · Coca-Cola Europacific Aboitiz Philippines</strong><span>February 2023 — November 2025</span></div></div>
+      </div>
+      <div class="tools"><p class="eyebrow">Tools I work with</p><div class="tool-list"><span>Google Workspace</span><span>Microsoft 365</span><span>Notion</span><span>Trello</span><span>Canva</span><span>ChatGPT</span><span>Slack</span><span>Zoom</span></div></div>
+    </section>
+
+    <section class="contact shell reveal" id="contact"><div><p class="eyebrow">Let’s work together</p><h2>Ready for a calmer, more organized workday?</h2><p>Tell me what’s taking up your time. I’d be glad to learn how I can support you.</p></div><a class="btn" href="mailto:josephberin12356@gmail.com?subject=Let%27s%20work%20together">Start a conversation ↗</a><div class="contact-details"><a href="mailto:josephberin12356@gmail.com">✉ josephberin12356@gmail.com</a><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Remote</span></div></section>
+  </main>
+
+  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a><span>Executive &amp; E-commerce Virtual Assistant</span><span>© 2026 Joseph Nacion Berin</span></footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(item => item.classList.remove('active'));
+        panels.forEach(panel => panel.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
+
+    const progress = document.querySelector('.scroll-progress');
+    const glow = document.querySelector('.cursor-glow');
+    let glowX = -1000, glowY = -1000, targetX = -1000, targetY = -1000;
+
+    window.addEventListener('scroll', () => {
+      const distance = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${distance > 0 ? (scrollY / distance) * 100 : 0}%`;
+    }, { passive: true });
+
+    window.addEventListener('pointermove', event => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+    }, { passive: true });
+
+    function animateGlow() {
+      glowX += (targetX - glowX) * .13;
+      glowY += (targetY - glowY) * .13;
+      glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    if (matchMedia('(pointer:fine)').matches) {
+      document.querySelectorAll('.service, .case:not(.large)').forEach(card => {
+        card.addEventListener('pointermove', event => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          card.style.setProperty('--ry', `${x * 7}deg`);
+          card.style.setProperty('--rx', `${y * -7}deg`);
+        });
+        card.addEventListener('pointerleave', () => {
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--rx', '0deg');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

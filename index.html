@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Joseph Nacion Berin — Executive and E-commerce Virtual Assistant providing organized, reliable remote support.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://josephberinyourva.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Joseph Berin | Administrative and E-commerce Support">
+  <meta property="og:description" content="Organized, reliable remote support for executives and growing online stores.">
+  <meta property="og:url" content="https://josephberinyourva.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Joseph Berin | Administrative and E-commerce Support">
+  <meta name="twitter:description" content="Organized, reliable remote support for executives and growing online stores.">
   <meta name="theme-color" content="#07111f">
   <title>Joseph Berin | Executive &amp; E-commerce Virtual Assistant</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%2307111f'/%3E%3Cpath d='M17 16h12v25c0 8-5 12-12 10v-8c3 1 4-1 4-4V24h-4zm17 0h9c8 0 13 3 13 9 0 4-2 6-5 7 4 1 6 4 6 8 0 8-6 11-15 11h-8zm8 14h2c3 0 4-1 4-4s-2-3-5-3h-1zm0 14h2c4 0 5-1 5-4s-2-4-6-4h-1z' fill='%23c9ff5f'/%3E%3C/svg%3E">
@@ -53,8 +62,19 @@
     .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 850; }
     .brand-mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: var(--ink); color: var(--lime); font-size: .8rem; font-weight: 950; box-shadow: 0 8px 24px rgba(7,17,31,.15); }
     .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .88rem; font-weight: 750; }
-    .nav-links a:hover { color: var(--text); }
+    .nav-tools { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle { display: none; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 11px; background: transparent; color: var(--text); cursor: pointer; font-size: 1.05rem; }
+    .mobile-menu { display: none; padding: 0 24px 17px; grid-template-columns: 1fr; gap: 5px; border-top: 1px solid var(--line); }
+    .mobile-menu.open { display: grid; }
+    .mobile-menu a { padding: 12px 3px; color: var(--muted); font-size: .86rem; font-weight: 800; }
+    .mobile-menu a:last-child { color: var(--lime); }
+    .nav-links a { position: relative; transition: color .22s ease; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -9px; width: 100%; height: 2px; border-radius: 99px; background: var(--lime); transform: scaleX(0); transform-origin: right; transition: transform .25s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
     .nav-cta { padding: 10px 15px; border-radius: 11px; background: var(--ink); color: white; font-size: .82rem; font-weight: 850; }
+    .theme-toggle { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 11px; background: transparent; color: var(--text); cursor: pointer; transition: transform .2s ease, background .2s ease; }
+    .theme-toggle:hover { transform: rotate(12deg); background: rgba(255,255,255,.06); }
 
     .hero {
       position: relative;
@@ -76,6 +96,8 @@
     }
     .hero::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to right, black, transparent 75%); }
     .hero-copy, .command-center { position: relative; z-index: 1; }
+    .hero-copy { animation: hero-copy-in .78s cubic-bezier(.2,.8,.2,1) both; }
+    .command-center { animation: hero-panel-in .9s .12s cubic-bezier(.2,.8,.2,1) both; }
     .availability { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: #c7d2e4; font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
     .live-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(54,207,124,.12); animation: pulse 2s infinite; }
     h1 { max-width: 590px; margin: 0; font-size: clamp(3.5rem, 6vw, 6.2rem); line-height: .93; letter-spacing: -.065em; }
@@ -86,7 +108,10 @@
     .btn:hover { transform: translateY(-3px); }
     .btn-primary { background: var(--lime); color: var(--ink); box-shadow: 0 15px 40px rgba(201,255,95,.14); }
     .btn-ghost { border-color: rgba(255,255,255,.18); color: white; }
+    .btn-upwork { border-color: rgba(201,255,95,.48); background: rgba(201,255,95,.08); color: var(--lime); }
+    .btn-upwork:hover { border-color: var(--lime); background: rgba(201,255,95,.15); }
     .hero-meta { margin-top: 29px; display: flex; flex-wrap: wrap; gap: 20px; color: #8291a8; font-size: .78rem; font-weight: 700; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
 
     .command-center { perspective: 1200px; }
     .app-window { border: 1px solid rgba(255,255,255,.13); border-radius: 22px; overflow: hidden; background: #f8fafe; color: var(--text); box-shadow: 0 40px 100px rgba(0,0,0,.42); transform: rotateY(-4deg) rotateX(2deg); transition: transform .35s ease; }
@@ -166,6 +191,11 @@
     .service li { display: flex; gap: 8px; color: #3c4b60; font-size: .78rem; font-weight: 700; }
     .service li::before { content: "✓"; color: var(--blue); font-weight: 950; }
     .service.ecom li::before { color: #079995; }
+    .service-packages { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .package { padding: 21px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.025); }
+    .package small { color: var(--cyan); font-size: .61rem; font-weight: 900; letter-spacing: .1em; }
+    .package h3 { margin: 9px 0 5px; font-size: 1rem; }
+    .package p { margin: 0; color: var(--muted); font-size: .75rem; }
 
     .case-section { padding-bottom: 112px; }
     .case-grid { margin-top: 45px; display: grid; grid-template-columns: 1.12fr .88fr; gap: 22px; }
@@ -201,6 +231,28 @@
     .mini-row b { font-size: .67rem; }
     .reply { margin-top: 24px; padding: 15px; border-radius: 13px; background: #f5f8fc; color: #526177; font-size: .68rem; }
     .reply b { display: block; margin-bottom: 5px; color: var(--text); }
+    .project-button { margin-top: 22px; padding: 0; border: 0; background: transparent; color: var(--cyan); font-size: .72rem; font-weight: 900; cursor: pointer; }
+    .project-button::after { content: " →"; display: inline-block; transition: transform .2s ease; }
+    .project-button:hover::after { transform: translateX(5px); }
+
+    .approach { padding: 0 0 112px; }
+    .approach-wrap { padding: 48px; border: 1px solid var(--line); border-radius: 27px; background: rgba(16,28,45,.64); }
+    .approach-grid { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .approach-step { padding: 23px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.025); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+    .approach-step:hover { transform: translateY(-6px); border-color: rgba(39,217,212,.45); background: rgba(39,217,212,.055); }
+    .approach-step b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(102,131,255,.14); color: #aebcff; font-size: .72rem; }
+    .approach-step h3 { margin: 18px 0 6px; font-size: 1rem; }
+    .approach-step p { margin: 0; color: var(--muted); font-size: .78rem; }
+
+    .project-dialog { width: min(620px, calc(100% - 32px)); padding: 0; border: 1px solid rgba(164,186,220,.22); border-radius: 23px; background: #0d1a2c; color: var(--text); box-shadow: 0 35px 120px rgba(0,0,0,.7); }
+    .project-dialog::backdrop { background: rgba(1,5,11,.72); backdrop-filter: blur(8px); }
+    .dialog-inner { padding: 34px; }
+    .dialog-close { float: right; width: 37px; height: 37px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer; }
+    .dialog-kicker { color: var(--cyan); font-size: .68rem; font-weight: 900; letter-spacing: .12em; }
+    .dialog-inner h2 { margin-top: 18px; font-size: clamp(2rem, 5vw, 3rem); }
+    .dialog-inner p { color: var(--muted); }
+    .dialog-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .dialog-list li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.03); color: #c7d4e7; font-size: .8rem; }
 
     .about-wrap { padding: 76px; display: grid; grid-template-columns: 280px 1fr; gap: 65px; align-items: center; border-radius: 30px; color: white; background: var(--ink); }
     .photo-card { position: relative; }
@@ -217,20 +269,72 @@
     .tool-list { display: flex; flex-wrap: wrap; gap: 9px; }
     .tool-list span { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #4d5c72; font-size: .72rem; font-weight: 800; }
 
-    .contact { margin: 112px auto 30px; padding: 69px; border-radius: 30px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 35px; color: white; background: linear-gradient(135deg, #3657e9, #523bd0); overflow: hidden; position: relative; }
+    .availability-panel { margin-top: 35px; padding: 23px; display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; border: 1px solid rgba(54,207,124,.26); border-radius: 17px; background: rgba(54,207,124,.055); }
+    .availability-panel .live-dot { margin-left: 4px; }
+    .availability-panel b { display: block; font-size: .86rem; }
+    .availability-panel span { display: block; color: var(--muted); font-size: .72rem; }
+    .availability-panel .btn { min-height: 43px; padding-inline: 15px; background: var(--lime); color: var(--ink); }
+
+    .faq { padding: 112px 0 0; }
+    .faq-grid { margin-top: 37px; display: grid; grid-template-columns: .82fr 1.18fr; gap: 58px; align-items: start; }
+    .faq-intro { color: var(--muted); }
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item { border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); overflow: hidden; }
+    .faq-item summary { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; color: var(--text); font-size: .86rem; font-weight: 850; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--cyan); font-size: 1.22rem; font-weight: 400; transition: transform .2s ease; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p { margin: 0; padding: 0 20px 19px; color: var(--muted); font-size: .79rem; }
+
+    .contact { margin: 112px auto 30px; padding: 69px; border-radius: 30px; display: grid; grid-template-columns: .9fr 1.1fr; align-items: start; gap: 52px; color: white; background: linear-gradient(135deg, #3657e9, #523bd0); overflow: hidden; position: relative; }
     .contact::after { content: "@"; position: absolute; right: 35px; top: -115px; color: rgba(255,255,255,.06); font-size: 19rem; font-weight: 950; }
     .contact > * { position: relative; z-index: 1; }
     .contact .eyebrow { color: #d7ddff; }
     .contact p:not(.eyebrow) { max-width: 640px; color: #d9dfff; }
     .contact .btn { background: var(--lime); color: var(--ink); }
     .contact-details { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.2); display: flex; flex-wrap: wrap; gap: 25px; color: #d9dfff; font-size: .78rem; }
+    .inquiry-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .inquiry-form .full { grid-column: 1/-1; }
+    .inquiry-form label { display: grid; gap: 6px; color: #e5e9ff; font-size: .69rem; font-weight: 850; }
+    .inquiry-form input, .inquiry-form select, .inquiry-form textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 11px; outline: 0; background: rgba(7,17,31,.25); color: white; font: inherit; font-size: .78rem; }
+    .inquiry-form input::placeholder, .inquiry-form textarea::placeholder { color: #b8c2ec; }
+    .inquiry-form select option { color: #152238; }
+    .inquiry-form input:focus, .inquiry-form select:focus, .inquiry-form textarea:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(201,255,95,.14); }
+    .inquiry-form textarea { min-height: 102px; resize: vertical; }
+    .form-note { grid-column: 1/-1; margin: 2px 0 0; color: #d9dfff; font-size: .67rem; }
+    .email-copy { margin-left: -11px; padding: 4px 8px; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; background: transparent; color: #eef1ff; cursor: pointer; font-size: .62rem; font-weight: 800; }
+    .email-copy:hover { background: rgba(255,255,255,.1); }
+    .footer-links { display: flex; align-items: center; gap: 13px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--cyan); }
     footer { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); font-size: .74rem; }
 
-    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible .service:nth-child(2), .reveal.visible .case:nth-child(2) { transition-delay: .1s; }
+    .back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 60; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(201,255,95,.45); border-radius: 14px; background: rgba(10,20,34,.88); box-shadow: 0 14px 35px rgba(0,0,0,.28); color: var(--lime); cursor: pointer; opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .25s ease, transform .25s ease, background .2s ease; }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { background: var(--lime); color: var(--ink); }
+    .welcome-card { position: fixed; z-index: 70; left: 22px; bottom: 22px; width: min(350px, calc(100% - 82px)); padding: 17px 18px; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: start; border: 1px solid rgba(164,186,220,.2); border-radius: 16px; background: rgba(13,26,44,.94); box-shadow: 0 20px 60px rgba(0,0,0,.35); backdrop-filter: blur(18px); opacity: 0; transform: translateY(18px) scale(.96); pointer-events: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+    .welcome-card.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .welcome-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 11px; background: rgba(201,255,95,.14); color: var(--lime); font-size: .84rem; font-weight: 950; }
+    .welcome-card small { display: block; color: var(--cyan); font-size: .58rem; font-weight: 900; letter-spacing: .1em; }
+    .welcome-card strong { display: block; margin-top: 2px; font-size: .79rem; }
+    .welcome-card p { margin: 3px 0 0; color: #aab9cd; font-size: .68rem; line-height: 1.45; }
+    .welcome-close { width: 25px; height: 25px; border: 0; border-radius: 8px; background: transparent; color: #aab9cd; cursor: pointer; font-size: 1rem; line-height: 1; }
+    .welcome-close:hover { background: rgba(255,255,255,.08); color: white; }
+    body.light-mode { --paper: #edf3fb; --white: #ffffff; --text: #102038; --muted: #5c6e86; --line: #d5dfeb; background: #edf3fb; }
+    body.light-mode::before { opacity: .18; }
+    body.light-mode .nav-wrap { background: rgba(237,243,251,.76); }
+    body.light-mode .service, body.light-mode .case, body.light-mode .approach-wrap { background: #ffffff; }
+    body.light-mode .case.large, body.light-mode .about-wrap { background: #102038; }
+    body.light-mode .project-dialog { background: #ffffff; }
+    body.light-mode .dialog-list li { background: #f5f8fc; color: #33435b; }
     @keyframes pulse { 50% { box-shadow: 0 0 0 10px rgba(54,207,124,0); } }
     @keyframes float { 50% { transform: translateY(-8px); } }
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    @keyframes hero-copy-in { from { opacity: 0; transform: translateY(22px); } }
+    @keyframes hero-panel-in { from { opacity: 0; transform: translateY(26px) scale(.97); } }
 
     @media (max-width: 980px) {
       .hero { grid-template-columns: 1fr; padding-block: 65px 85px; }
@@ -243,12 +347,15 @@
       .workflow { grid-column: 1/-1; }
       .about-wrap { padding: 55px; grid-template-columns: 230px 1fr; }
       .photo-card img { height: 340px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 20px; }
     }
 
     @media (max-width: 700px) {
       .shell { width: calc(100% - 32px); }
       nav { height: 68px; }
       .nav-links { display: none; }
+      .menu-toggle { display: grid; }
+      .nav-cta { display: none; }
       .hero { width: calc(100% - 14px); min-height: 0; margin-top: 7px; padding: 49px 21px 64px; border-radius: 24px; gap: 42px; }
       h1 { font-size: clamp(3.35rem, 16vw, 5rem); }
       .actions { flex-direction: column; }
@@ -262,10 +369,13 @@
       .stat { padding: 9px; }
       .stat b { font-size: .93rem; }
       .floating-note { right: 8px; bottom: -36px; width: 190px; }
+      .back-to-top { right: 14px; bottom: 14px; }
+      .welcome-card { left: 14px; bottom: 14px; }
       .trust { grid-template-columns: 1fr 1fr; }
       .trust-item:nth-child(3) { border-left: 0; }
       .section { padding-top: 85px; }
       .service-grid, .case-grid { grid-template-columns: 1fr; }
+      .service-packages { grid-template-columns: 1fr; }
       .service { padding: 27px; }
       .service ul { grid-template-columns: 1fr; }
       .case.large { grid-column: auto; display: block; min-height: 0; }
@@ -275,6 +385,13 @@
       .photo-card img { height: 390px; }
       .contact { width: calc(100% - 14px); margin-top: 85px; padding: 48px 23px; grid-template-columns: 1fr; }
       .contact-details { grid-column: auto; display: grid; }
+      .availability-panel { grid-template-columns: auto 1fr; }
+      .availability-panel .btn { grid-column: 1/-1; }
+      .faq { padding-top: 85px; }
+      .inquiry-form { grid-template-columns: 1fr; }
+      .inquiry-form .full { grid-column: auto; }
+      .approach-wrap { padding: 28px 22px; }
+      .approach-grid { grid-template-columns: 1fr; }
       footer { padding: 28px 0; flex-direction: column; text-align: center; }
     }
 
@@ -378,9 +495,8 @@
   <div class="nav-wrap">
     <nav class="shell" aria-label="Main navigation">
       <a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a>
-      <div class="nav-links"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a></div>
-      <a class="nav-cta" href="mailto:josephberin12356@gmail.com">Let’s talk ↗</a>
-    </nav>
+      <div class="nav-tools"><div class="nav-links"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a></div><button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">☰</button><a class="nav-cta" href="mailto:josephberin12356@gmail.com">Let’s talk ↗</a></div>
+    </nav><div class="mobile-menu" id="mobile-menu"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact me ↗</a></div>
   </div>
 
   <main>
@@ -391,27 +507,27 @@
         <p>I help busy executives and growing online stores stay organized—from schedules and inboxes to products, orders, and customer support.</p>
         <div class="actions">
           <a class="btn btn-primary" href="mailto:josephberin12356@gmail.com?subject=Virtual%20Assistant%20Opportunity">✉ Work with me</a>
-          <a class="btn btn-ghost" href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener">View my Upwork profile ↗</a>
+          <a class="btn btn-ghost btn-upwork" href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener">View my Upwork profile ↗</a>
           <a class="btn btn-ghost" href="#work">Explore sample work ↓</a>
         </div>
-        <div class="hero-meta"><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Flexible remote support</span></div>
+        <div class="hero-meta"><span>⌖ Iloilo City, Philippines</span><span>◷ <time id="manila-time">GMT+8</time> · Flexible remote support</span></div>
       </div>
 
       <div class="command-center" aria-label="Interactive sample workspace">
         <div class="app-window">
           <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="window-title">Joseph’s VA Command Center</span><span></span></div>
           <div class="window-body">
-            <aside class="sidebar" aria-label="Demo workspace tabs">
+            <aside class="sidebar" aria-label="Demo workspace tabs" role="tablist">
               <img class="avatar" src="joseph-berin.jpeg" alt="Joseph Nacion Berin">
-              <button class="side-icon active" type="button" data-tab="inbox" aria-label="Show inbox demo" title="Inbox">✉</button>
-              <button class="side-icon" type="button" data-tab="calendar" aria-label="Show calendar demo" title="Calendar">▦</button>
-              <button class="side-icon" type="button" data-tab="store" aria-label="Show store demo" title="Store">▣</button>
+              <button class="side-icon active" type="button" data-tab="inbox" aria-controls="inbox" aria-selected="true" aria-label="Show inbox demo" role="tab" title="Inbox">✉</button>
+              <button class="side-icon" type="button" data-tab="calendar" aria-controls="calendar" aria-selected="false" aria-label="Show calendar demo" role="tab" title="Calendar">▦</button>
+              <button class="side-icon" type="button" data-tab="store" aria-controls="store" aria-selected="false" aria-label="Show store demo" role="tab" title="Store">▣</button>
             </aside>
 
             <div class="workspace">
               <div class="workspace-head"><div><small>Good morning</small><strong>Here’s today at a glance.</strong></div><span class="demo-pill">SAMPLE WORKSPACE</span></div>
 
-              <div class="tab-panel active" id="inbox">
+              <div class="tab-panel active" id="inbox" role="tabpanel">
                 <div class="stat-row"><div class="stat"><small>Priority</small><b>3</b></div><div class="stat"><small>Follow-ups</small><b>4</b></div><div class="stat"><small>Organized</small><b class="green">✓</b></div></div>
                 <div class="panel-card">
                   <div class="panel-title">Priority inbox <span>View all →</span></div>
@@ -421,7 +537,7 @@
                 </div>
               </div>
 
-              <div class="tab-panel" id="calendar">
+              <div class="tab-panel" id="calendar" role="tabpanel">
                 <div class="panel-card">
                   <div class="panel-title">Weekly calendar <span>September 7–11</span></div>
                   <div class="week"><span></span><span>MON 07</span><span>TUE 08</span><span>WED 09</span><span>THU 10</span><span>FRI 11</span></div>
@@ -429,7 +545,7 @@
                 </div>
               </div>
 
-              <div class="tab-panel" id="store">
+              <div class="tab-panel" id="store" role="tabpanel">
                 <div class="stat-row"><div class="stat"><small>New orders</small><b>12</b></div><div class="stat"><small>To ship</small><b>5</b></div><div class="stat"><small>Low stock</small><b>2</b></div></div>
                 <div class="panel-card">
                   <div class="panel-title">Order monitor <span>Sample data</span></div>
@@ -459,6 +575,7 @@
         <article class="service" data-number="01"><div class="service-icon">✓</div><h3>Executive Assistance</h3><p>Reliable daily support for busy professionals and growing teams.</p><ul><li>Inbox organization</li><li>Calendar management</li><li>Meeting coordination</li><li>Research &amp; data gathering</li><li>File organization</li><li>Travel research</li></ul></article>
         <article class="service ecom" data-number="02"><div class="service-icon">▣</div><h3>E-commerce Assistance</h3><p>Accurate store support from product listing to customer follow-up.</p><ul><li>Product listings</li><li>Competitor research</li><li>Inventory monitoring</li><li>Order tracking</li><li>Customer support</li><li>Store data entry</li></ul></article>
       </div>
+      <div class="service-packages" aria-label="Ways I can support your business"><article class="package"><small>ONGOING SUPPORT</small><h3>Admin Support</h3><p>For recurring inbox, calendar, document, and data-management tasks.</p></article><article class="package"><small>STORE SUPPORT</small><h3>E-commerce Operations</h3><p>For product data, order tracking, inventory checks, and customer follow-up.</p></article><article class="package"><small>FOCUSED HELP</small><h3>Task-Based Support</h3><p>For a defined research, cleanup, tracker, or organization project.</p></article></div>
     </section>
 
     <section class="section case-section shell reveal" id="work">
@@ -467,35 +584,46 @@
         <article class="case large">
           <div><span class="case-label">Practice project</span><h3>Executive Inbox &amp; Daily Workflow</h3><p>A simple system for sorting messages, identifying priorities, drafting replies, and tracking follow-ups.</p><div class="project-meta"><span>Gmail</span><span>Google Calendar</span><span>Google Sheets</span></div></div>
           <div class="inbox-preview"><div class="preview-top"><span>Priority Inbox</span><span class="preview-search"></span><span>3 open</span></div><div class="preview-mail"><i></i><div><strong>Approve Q3 meeting schedule</strong><span>Draft agenda and time options prepared</span></div><time>9:12</time></div><div class="preview-mail"><i></i><div><strong>Travel options for Manila</strong><span>Three options compared by time and cost</span></div><time>8:36</time></div><div class="preview-mail"><i></i><div><strong>Client follow-up</strong><span>Professional response ready for review</span></div><time>8:04</time></div></div>
-          <div class="workflow"><div class="workflow-step"><i>1</i><strong>Review and categorize</strong><span>Urgent, action needed, waiting, and reference.</span></div><div class="workflow-step"><i>2</i><strong>Prepare next actions</strong><span>Draft replies, create calendar holds, and log follow-ups.</span></div><div class="workflow-step"><i>3</i><strong>Send a clear summary</strong><span>Priorities, decisions needed, and completed items.</span></div></div>
+          <div class="workflow"><div class="workflow-step"><i>1</i><strong>Review and categorize</strong><span>Urgent, action needed, waiting, and reference.</span></div><div class="workflow-step"><i>2</i><strong>Prepare next actions</strong><span>Draft replies, create calendar holds, and log follow-ups.</span></div><div class="workflow-step"><i>3</i><strong>Send a clear summary</strong><span>Priorities, decisions needed, and completed items.</span></div></div><button class="project-button" type="button" data-project="inbox">See workflow details</button>
         </article>
-        <article class="case"><span class="case-label">Practice project</span><h3>Inventory &amp; Order Tracker</h3><p>A clean spreadsheet view for stock levels, order status, and low-stock alerts.</p><div class="project-meta"><span>Google Sheets</span><span>Data entry</span></div><div class="mini-tracker"><div class="mini-row"><span>Canvas Tote</span><b>42</b><span class="tag shipped">In stock</span></div><div class="mini-row"><span>Desk Lamp</span><b>8</b><span class="tag processing">Low stock</span></div><div class="mini-row"><span>Daily Planner</span><b>31</b><span class="tag shipped">In stock</span></div></div></article>
-        <article class="case"><span class="case-label">Practice project</span><h3>Customer Reply Library</h3><p>Friendly, professional response templates for order updates, returns, and product questions.</p><div class="project-meta"><span>Customer support</span><span>Canva</span></div><div class="reply"><b>Order update</b>Hi Alex, thank you for reaching out. I checked your order and it is now on the way. I’ll be happy to help if you need anything else.</div></article>
+        <article class="case"><span class="case-label">Practice project</span><h3>Inventory &amp; Order Tracker</h3><p>A clean spreadsheet view for stock levels, order status, and low-stock alerts.</p><div class="project-meta"><span>Google Sheets</span><span>Data entry</span></div><div class="mini-tracker"><div class="mini-row"><span>Canvas Tote</span><b>42</b><span class="tag shipped">In stock</span></div><div class="mini-row"><span>Desk Lamp</span><b>8</b><span class="tag processing">Low stock</span></div><div class="mini-row"><span>Daily Planner</span><b>31</b><span class="tag shipped">In stock</span></div></div><button class="project-button" type="button" data-project="tracker">See tracker details</button></article>
+        <article class="case"><span class="case-label">Practice project</span><h3>Customer Reply Library</h3><p>Friendly, professional response templates for order updates, returns, and product questions.</p><div class="project-meta"><span>Customer support</span><span>Canva</span></div><div class="reply"><b>Order update</b>Hi Alex, thank you for reaching out. I checked your order and it is now on the way. I’ll be happy to help if you need anything else.</div><button class="project-button" type="button" data-project="replies">See reply details</button></article>
       </div>
     </section>
+
+    <section class="shell approach reveal" aria-labelledby="approach-heading"><div class="approach-wrap"><p class="eyebrow">03 · Working style</p><h2 id="approach-heading">A simple rhythm for dependable support.</h2><div class="approach-grid"><article class="approach-step"><b>01</b><h3>Align first</h3><p>I clarify priorities, preferred tools, and what “done” looks like before I start.</p></article><article class="approach-step"><b>02</b><h3>Keep it visible</h3><p>Tasks, updates, and follow-ups are organized so nothing gets lost in the day.</p></article><article class="approach-step"><b>03</b><h3>Close the loop</h3><p>You receive a concise update with completed work and the next action needed.</p></article></div></div></section>
 
     <section class="shell reveal" id="about">
       <div class="about-wrap">
         <div class="photo-card"><img src="joseph-berin.jpeg" alt="Joseph Nacion Berin wearing professional business attire"></div>
-        <div class="about-copy"><p class="eyebrow">03 · About Me</p><h2>Careful with the details. Committed to the outcome.</h2><p>I’m Joseph, a detail-oriented and tech-savvy Virtual Assistant from the Philippines. My data encoding background strengthened the skills that matter in remote support: accuracy, consistency, organization, and responsible handling of business information.</p><p>I’m ready to learn your systems, communicate clearly, and become the dependable support behind your day-to-day operations.</p><div class="experience"><small>RELEVANT EXPERIENCE</small><strong>Data Encoder · Coca-Cola Europacific Aboitiz Philippines</strong><span>February 2023 — November 2025</span></div></div>
+        <div class="about-copy"><p class="eyebrow">04 · About Me</p><h2>Careful with the details. Committed to the outcome.</h2><p>I’m Joseph, a detail-oriented and tech-savvy Virtual Assistant from the Philippines. My data encoding background strengthened the skills that matter in remote support: accuracy, consistency, organization, and responsible handling of business information.</p><p>I’m ready to learn your systems, communicate clearly, and become the dependable support behind your day-to-day operations.</p><div class="experience"><small>RELEVANT EXPERIENCE</small><strong>Data Encoder · Coca-Cola Europacific Aboitiz Philippines</strong><span>February 2023 — November 2025</span></div><div class="availability-panel"><span class="live-dot" aria-hidden="true"></span><div><b>Open to remote opportunities</b><span>Part-time or full-time support · GMT+8 · Flexible schedule</span></div><a class="btn" href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a discovery call ↗</a></div></div>
       </div>
       <div class="tools"><p class="eyebrow">Tools I work with</p><div class="tool-list"><span>Google Workspace</span><span>Microsoft 365</span><span>Notion</span><span>Trello</span><span>Canva</span><span>ChatGPT</span><span>Slack</span><span>Zoom</span></div></div>
     </section>
 
-    <section class="contact shell reveal" id="contact"><div><p class="eyebrow">Let’s work together</p><h2>Ready for a calmer, more organized workday?</h2><p>Tell me what’s taking up your time. I’d be glad to learn how I can support you.</p></div><a class="btn" href="mailto:josephberin12356@gmail.com?subject=Let%27s%20work%20together">Start a conversation ↗</a><div class="contact-details"><a href="mailto:josephberin12356@gmail.com">✉ josephberin12356@gmail.com</a><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Remote</span></div></section>
+    <section class="shell faq reveal" id="faq"><div class="faq-grid"><div><p class="eyebrow">05 · FAQ</p><h2>Helpful details before we work together.</h2><p class="faq-intro">A quick overview of how I can support your day-to-day operations.</p></div><div class="faq-list"><details class="faq-item"><summary>What tasks can you support?</summary><p>I can support data entry, file organization, inbox and calendar coordination, research, basic customer support, product listing, and routine administrative tasks.</p></details><details class="faq-item"><summary>Which tools do you work with?</summary><p>I use Google Workspace, Microsoft 365, Notion, Trello, Canva, Slack, Zoom, and ChatGPT. I’m also comfortable learning client-specific systems.</p></details><details class="faq-item"><summary>How do you keep tasks organized?</summary><p>I use clear task lists, consistent file naming, status updates, and follow-up tracking so priorities and next steps are easy to see.</p></details><details class="faq-item"><summary>How can we start?</summary><p>Send a short message about the work you need help with. I’ll review the scope, clarify priorities, and we can arrange a discovery call if needed.</p></details></div></div></section>
+
+    <section class="contact shell reveal" id="contact"><div><p class="eyebrow">Let’s work together</p><h2>Ready for a calmer, more organized workday?</h2><p>Share what is taking up your time, and I’ll prepare a clear starting point for the conversation.</p><div class="actions"><a class="btn" href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a discovery call ↗</a></div></div><form class="inquiry-form" id="inquiry-form"><label>Your name<input name="name" required placeholder="Your name"></label><label>Email address<input name="email" type="email" required placeholder="you@company.com"></label><label class="full">What support do you need?<select name="service" required><option value="" selected disabled>Select a service</option><option>Administrative support</option><option>Data entry and file management</option><option>E-commerce support</option><option>Customer support</option><option>Other</option></select></label><label class="full">Tell me briefly about the work<textarea name="details" required placeholder="Tasks, timeline, and anything helpful to know"></textarea></label><button class="btn full" type="submit">Send inquiry by email ↗</button><p class="form-note">This opens your email app with the details already filled in—nothing is stored on this website.</p></form><div class="contact-details"><a href="mailto:josephberin12356@gmail.com">✉ josephberin12356@gmail.com</a><button class="email-copy" type="button" data-email="josephberin12356@gmail.com">Copy email</button><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Remote</span></div></section>
   </main>
 
-  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a><span>Executive &amp; E-commerce Virtual Assistant</span><span>© 2026 Joseph Nacion Berin</span></footer>
+  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a><div class="footer-links"><a href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener">Upwork ↗</a><a href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a call ↗</a></div><span>© 2026 Joseph Nacion Berin</span></footer>
+  <aside class="welcome-card" aria-live="polite" aria-label="Welcome message"><span class="welcome-mark">JB</span><div><small id="welcome-label">WELCOME</small><strong id="welcome-title">Thanks for stopping by.</strong><p>Explore the sample workflows or send me a message when you’re ready.</p></div><button class="welcome-close" type="button" aria-label="Close welcome message">×</button></aside>
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
+  <dialog class="project-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="dialog-close" type="button" aria-label="Close project details">×</button><span class="dialog-kicker">PRACTICE PROJECT</span><h2 id="dialog-title"></h2><p id="dialog-summary"></p><ul class="dialog-list" id="dialog-list"></ul></div></dialog>
 
   <script>
     const tabButtons = document.querySelectorAll('[data-tab]');
     const panels = document.querySelectorAll('.tab-panel');
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        tabButtons.forEach(item => item.classList.remove('active'));
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        tabButtons.forEach(item => {
+          item.classList.remove('active');
+          item.setAttribute('aria-selected', 'false');
+        });
         panels.forEach(panel => panel.classList.remove('active'));
         button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
         document.getElementById(button.dataset.tab).classList.add('active');
       });
     });
@@ -508,6 +636,15 @@
 
     document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
 
+    const sectionLinks = [...document.querySelectorAll('.nav-links a')];
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-35% 0px -55%', threshold: .01 });
+    document.querySelectorAll('#services, #work, #about').forEach(section => navObserver.observe(section));
+
     const progress = document.querySelector('.scroll-progress');
     const glow = document.querySelector('.cursor-glow');
     let glowX = -1000, glowY = -1000, targetX = -1000, targetY = -1000;
@@ -515,7 +652,97 @@
     window.addEventListener('scroll', () => {
       const distance = document.documentElement.scrollHeight - innerHeight;
       progress.style.width = `${distance > 0 ? (scrollY / distance) * 100 : 0}%`;
+      document.querySelector('.back-to-top').classList.toggle('visible', scrollY > 650);
     }, { passive: true });
+
+    document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const themeButton = document.querySelector('.theme-toggle');
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light') document.body.classList.add('light-mode');
+    themeButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('portfolio-theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+
+    const menuButton = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    menuButton.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    }));
+
+    const manilaTime = document.querySelector('#manila-time');
+    const updateManilaTime = () => {
+      manilaTime.textContent = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Manila', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date()) + ' GMT+8';
+    };
+    updateManilaTime();
+    setInterval(updateManilaTime, 30000);
+
+    const welcomeCard = document.querySelector('.welcome-card');
+    const welcomeTitle = document.querySelector('#welcome-title');
+    const welcomeLabel = document.querySelector('#welcome-label');
+    const greetingHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila', hour: 'numeric', hour12: false });
+    const greeting = Number(greetingHour) < 12 ? 'Good morning' : Number(greetingHour) < 18 ? 'Good afternoon' : 'Good evening';
+    welcomeLabel.textContent = `${greeting.toUpperCase()} · WELCOME`;
+    welcomeTitle.textContent = `${greeting}—thanks for visiting.`;
+    const dismissWelcome = () => welcomeCard.classList.remove('visible');
+    setTimeout(() => welcomeCard.classList.add('visible'), 650);
+    setTimeout(dismissWelcome, 7200);
+    document.querySelector('.welcome-close').addEventListener('click', dismissWelcome);
+
+    const projects = {
+      inbox: {
+        title: 'Executive Inbox & Daily Workflow',
+        summary: 'A practice workflow for turning a busy inbox into a short, useful list of priorities.',
+        items: ['Sort messages by urgency, owner, and next action.', 'Draft replies and prepare calendar holds for review.', 'Send a clear end-of-day summary with open items.']
+      },
+      tracker: {
+        title: 'Inventory & Order Tracker',
+        summary: 'A practice tracker designed to make store operations easier to scan and follow up.',
+        items: ['Keep product quantities and order status in one view.', 'Flag low-stock items for a timely review.', 'Use simple, consistent labels for handoffs and updates.']
+      },
+      replies: {
+        title: 'Customer Reply Library',
+        summary: 'A practice library of clear, friendly starting points for common customer questions.',
+        items: ['Create adaptable templates for order updates and returns.', 'Keep the tone helpful, professional, and easy to understand.', 'Leave room for a client’s own policies and approval process.']
+      }
+    };
+    const dialog = document.querySelector('.project-dialog');
+    document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+      const project = projects[button.dataset.project];
+      document.querySelector('#dialog-title').textContent = project.title;
+      document.querySelector('#dialog-summary').textContent = project.summary;
+      document.querySelector('#dialog-list').innerHTML = project.items.map(item => `<li>${item}</li>`).join('');
+      dialog.showModal();
+    }));
+    document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+    document.querySelector('#inquiry-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const subject = `Website inquiry: ${data.get('service')}`;
+      const body = `Hello Joseph,\n\nMy name is ${data.get('name')}.\nEmail: ${data.get('email')}\nSupport needed: ${data.get('service')}\n\nProject details:\n${data.get('details')}\n\nThank you.`;
+      window.location.href = `mailto:josephberin12356@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    document.querySelector('[data-email]').addEventListener('click', async event => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(button.dataset.email);
+        button.textContent = 'Copied!';
+      } catch {
+        button.textContent = button.dataset.email;
+      }
+      setTimeout(() => { button.textContent = 'Copy email'; }, 1800);
+    });
 
     window.addEventListener('pointermove', event => {
       targetX = event.clientX;

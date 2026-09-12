@@ -487,6 +487,23 @@
     @keyframes shine { 0%,65% { left: -45%; } 88%,100% { left: 130%; } }
     @keyframes sweep { 0%,65% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
     @media (max-width: 700px) { .cursor-glow { display: none; } .service, .case { transform: none !important; } }
+
+    /* The command-center preview keeps its own dark surface in both color themes. */
+    body.light-mode .app-window,
+    body.light-mode .window-body { color: #edf3ff; }
+    body.light-mode .workspace-head small,
+    body.light-mode .stat small,
+    body.light-mode .mail small,
+    body.light-mode .order small,
+    body.light-mode .mail time,
+    body.light-mode .week > span,
+    body.light-mode .orders-head { color: #9baac0; }
+    body.light-mode .stat b,
+    body.light-mode .mail strong,
+    body.light-mode .order strong,
+    body.light-mode .panel-title { color: #edf3ff; }
+    body.light-mode .schedule { background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, rgba(164,186,220,.16) 40px); }
+    body.light-mode .schedule::after { background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), rgba(164,186,220,.16) 20%); }
   </style>
 </head>
 <body>

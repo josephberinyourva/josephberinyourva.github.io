@@ -3,796 +3,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Joseph Nacion Berin — Executive and E-commerce Virtual Assistant providing organized, reliable remote support.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://josephberinyourva.github.io/">
+  <title>Joseph Berin | Amazon Virtual Assistant & SEO Support</title>
+  <meta name="description" content="Joseph Berin, a Philippines-based Amazon Virtual Assistant and SEO support provider. Explore listing audits, PPC reports, inventory trackers, and SEO work samples.">
+  <meta name="theme-color" content="#17324d">
+  <link rel="canonical" href="https://josephberinyourva.site/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Joseph Berin | Administrative and E-commerce Support">
-  <meta property="og:description" content="Organized, reliable remote support for executives and growing online stores.">
-  <meta property="og:url" content="https://josephberinyourva.github.io/">
+  <meta property="og:title" content="Joseph Berin | Amazon VA & SEO Support">
+  <meta property="og:description" content="Organized Amazon operations. Thoughtful SEO support. Explore Joseph’s services and practical work samples.">
+  <meta property="og:url" content="https://josephberinyourva.site/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Joseph Berin | Administrative and E-commerce Support">
-  <meta name="twitter:description" content="Organized, reliable remote support for executives and growing online stores.">
-  <meta name="theme-color" content="#07111f">
-  <title>Joseph Berin | Executive &amp; E-commerce Virtual Assistant</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%2307111f'/%3E%3Cpath d='M17 16h12v25c0 8-5 12-12 10v-8c3 1 4-1 4-4V24h-4zm17 0h9c8 0 13 3 13 9 0 4-2 6-5 7 4 1 6 4 6 8 0 8-6 11-15 11h-8zm8 14h2c3 0 4-1 4-4s-2-3-5-3h-1zm0 14h2c4 0 5-1 5-4s-2-4-6-4h-1z' fill='%23c9ff5f'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      --ink: #07111f;
-      --panel: #0d1a2c;
-      --panel-2: #12223a;
-      --paper: #f3f6fb;
-      --white: #ffffff;
-      --text: #152238;
-      --muted: #66748a;
-      --line: #dce3ee;
-      --blue: #486cff;
-      --cyan: #27d9d4;
-      --lime: #c9ff5f;
-      --orange: #ffb454;
-      --green: #36cf7c;
-      --shadow: 0 28px 80px rgba(7, 17, 31, .13);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--text);
-      font: 16px/1.6 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    img { max-width: 100%; }
-    .shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
-    .eyebrow { margin: 0 0 16px; font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
-    .muted { color: var(--muted); }
-
-    .nav-wrap {
-      position: sticky;
-      z-index: 50;
-      top: 0;
-      border-bottom: 1px solid rgba(220, 227, 238, .78);
-      background: rgba(243, 246, 251, .82);
-      backdrop-filter: blur(18px);
-    }
-    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 850; }
-    .brand-mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: var(--ink); color: var(--lime); font-size: .8rem; font-weight: 950; box-shadow: 0 8px 24px rgba(7,17,31,.15); }
-    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .88rem; font-weight: 750; }
-    .nav-tools { display: flex; align-items: center; gap: 10px; }
-    .menu-toggle { display: none; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 11px; background: transparent; color: var(--text); cursor: pointer; font-size: 1.05rem; }
-    .mobile-menu { display: none; padding: 0 24px 17px; grid-template-columns: 1fr; gap: 5px; border-top: 1px solid var(--line); }
-    .mobile-menu.open { display: grid; }
-    .mobile-menu a { padding: 12px 3px; color: var(--muted); font-size: .86rem; font-weight: 800; }
-    .mobile-menu a:last-child { color: var(--lime); }
-    .nav-links a { position: relative; transition: color .22s ease; }
-    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -9px; width: 100%; height: 2px; border-radius: 99px; background: var(--lime); transform: scaleX(0); transform-origin: right; transition: transform .25s ease; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
-    .nav-cta { padding: 10px 15px; border-radius: 11px; background: var(--ink); color: white; font-size: .82rem; font-weight: 850; }
-    .theme-toggle { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 11px; background: transparent; color: var(--text); cursor: pointer; transition: transform .2s ease, background .2s ease; }
-    .theme-toggle:hover { transform: rotate(12deg); background: rgba(255,255,255,.06); }
-
-    .hero {
-      position: relative;
-      width: min(1240px, calc(100% - 24px));
-      min-height: 690px;
-      margin: 18px auto 0;
-      padding: 72px max(34px, calc((100% - 1100px)/2));
-      display: grid;
-      grid-template-columns: .92fr 1.08fr;
-      align-items: center;
-      gap: 58px;
-      border-radius: 34px;
-      overflow: hidden;
-      color: white;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(72,108,255,.27), transparent 32%),
-        radial-gradient(circle at 96% 10%, rgba(39,217,212,.15), transparent 30%),
-        var(--ink);
-    }
-    .hero::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to right, black, transparent 75%); }
-    .hero-copy, .command-center { position: relative; z-index: 1; }
-    .hero-copy { animation: hero-copy-in .78s cubic-bezier(.2,.8,.2,1) both; }
-    .command-center { animation: hero-panel-in .9s .12s cubic-bezier(.2,.8,.2,1) both; }
-    .availability { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: #c7d2e4; font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
-    .live-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 6px rgba(54,207,124,.12); animation: pulse 2s infinite; }
-    h1 { max-width: 590px; margin: 0; font-size: clamp(3.5rem, 6vw, 6.2rem); line-height: .93; letter-spacing: -.065em; }
-    h1 span { color: var(--lime); font-family: Georgia, serif; font-weight: 400; font-style: italic; }
-    .hero-copy > p:not(.availability) { max-width: 570px; margin: 27px 0 0; color: #afbdd1; font-size: 1.08rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-    .btn { min-height: 51px; padding: 0 20px; border: 1px solid transparent; border-radius: 13px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: .86rem; font-weight: 900; transition: .22s ease; }
-    .btn:hover { transform: translateY(-3px); }
-    .btn-primary { background: var(--lime); color: var(--ink); box-shadow: 0 15px 40px rgba(201,255,95,.14); }
-    .btn-ghost { border-color: rgba(255,255,255,.18); color: white; }
-    .btn-upwork { border-color: rgba(201,255,95,.48); background: rgba(201,255,95,.08); color: var(--lime); }
-    .btn-upwork:hover { border-color: var(--lime); background: rgba(201,255,95,.15); }
-    .hero-meta { margin-top: 29px; display: flex; flex-wrap: wrap; gap: 20px; color: #8291a8; font-size: .78rem; font-weight: 700; }
-    .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
-
-    .command-center { perspective: 1200px; }
-    .app-window { border: 1px solid rgba(255,255,255,.13); border-radius: 22px; overflow: hidden; background: #f8fafe; color: var(--text); box-shadow: 0 40px 100px rgba(0,0,0,.42); transform: rotateY(-4deg) rotateX(2deg); transition: transform .35s ease; }
-    .app-window:hover { transform: rotateY(0) rotateX(0) translateY(-4px); }
-    .window-bar { height: 49px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: white; border-bottom: 1px solid var(--line); }
-    .traffic { display: flex; gap: 6px; }
-    .traffic i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b62; }
-    .traffic i:nth-child(2) { background: #ffbd45; }
-    .traffic i:nth-child(3) { background: #31c953; }
-    .window-title { font-size: .68rem; color: var(--muted); font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
-    .window-body { min-height: 470px; display: grid; grid-template-columns: 78px 1fr; }
-    .sidebar { padding: 17px 12px; background: #0e1b2e; color: #74849d; display: flex; flex-direction: column; align-items: center; gap: 13px; }
-    .avatar { width: 45px; height: 45px; border-radius: 14px; object-fit: cover; object-position: center 20%; border: 2px solid var(--lime); margin-bottom: 8px; }
-    .side-icon { width: 39px; height: 39px; border: 0; border-radius: 11px; display: grid; place-items: center; background: transparent; color: #73839c; cursor: pointer; font-weight: 900; transition: .2s; }
-    .side-icon:hover, .side-icon.active { color: var(--lime); background: rgba(255,255,255,.08); }
-    .workspace { padding: 22px; overflow: hidden; }
-    .workspace-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 21px; }
-    .workspace-head small { display: block; color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .workspace-head strong { display: block; margin-top: 2px; font-size: 1rem; }
-    .demo-pill { padding: 6px 9px; border-radius: 999px; background: #edf1ff; color: var(--blue); font-size: .58rem; font-weight: 900; letter-spacing: .08em; }
-    .tab-panel { display: none; animation: rise .35s ease; }
-    .tab-panel.active { display: block; }
-    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .stat { padding: 13px; border: 1px solid var(--line); border-radius: 12px; background: white; }
-    .stat small { color: var(--muted); font-size: .6rem; font-weight: 750; }
-    .stat b { display: block; margin-top: 3px; font-size: 1.18rem; }
-    .stat b.green { color: #168c50; }
-    .panel-card { margin-top: 13px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: white; }
-    .panel-title { padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); font-size: .68rem; font-weight: 900; }
-    .panel-title span { color: var(--blue); }
-    .mail { padding: 11px 14px; display: grid; grid-template-columns: 29px 1fr auto; gap: 10px; align-items: center; border-bottom: 1px solid #edf1f6; }
-    .mail:last-child { border: 0; }
-    .mail-icon { width: 29px; height: 29px; border-radius: 9px; display: grid; place-items: center; background: #eaf0ff; color: var(--blue); font-size: .66rem; font-weight: 900; }
-    .mail strong, .order strong { display: block; font-size: .68rem; line-height: 1.3; }
-    .mail small, .order small { display: block; color: var(--muted); font-size: .57rem; }
-    .mail time { color: var(--muted); font-size: .55rem; }
-    .week { display: grid; grid-template-columns: 47px repeat(5,1fr); font-size: .54rem; }
-    .week > span { padding: 9px 3px; text-align: center; color: var(--muted); font-weight: 850; border-bottom: 1px solid var(--line); }
-    .schedule { position: relative; height: 200px; background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, #edf1f6 40px); }
-    .schedule::after { content: ""; position: absolute; inset: 0 0 0 47px; background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), #edf1f6 20%); }
-    .time-list { position: absolute; z-index: 2; inset: 0 auto 0 0; width: 47px; display: grid; grid-template-rows: repeat(5,40px); color: #9aa5b5; font-size: .48rem; }
-    .time-list span { padding: 4px 0 0 6px; }
-    .event { position: absolute; z-index: 3; padding: 5px 6px; border-radius: 6px; font-size: .5rem; font-weight: 850; line-height: 1.2; }
-    .e1 { left: 21%; top: 8px; width: 14%; background: #e2e9ff; color: #3559d6; }
-    .e2 { left: 37%; top: 48px; width: 30%; background: #dff8f6; color: #087d79; }
-    .e3 { left: 69%; top: 89px; width: 14%; background: #eff9cc; color: #657c0d; }
-    .e4 { left: 85%; top: 130px; width: 13%; background: #ffe9d3; color: #9b5a17; }
-    .orders-head, .order { padding: 10px 13px; display: grid; grid-template-columns: 1fr .7fr .65fr; align-items: center; gap: 8px; }
-    .orders-head { background: #f7f9fc; color: var(--muted); font-size: .54rem; font-weight: 900; }
-    .order { border-top: 1px solid #edf1f6; }
-    .tag { width: fit-content; padding: 4px 7px; border-radius: 999px; font-size: .5rem; font-weight: 900; }
-    .tag.shipped { background: #e7f8ee; color: #19844d; }
-    .tag.processing { background: #fff2dd; color: #9b641e; }
-    .tag.new { background: #e8edff; color: #405dc7; }
-    .floating-note { position: absolute; z-index: 2; right: -18px; bottom: -24px; width: 220px; padding: 14px; border: 1px solid rgba(255,255,255,.15); border-radius: 15px; background: rgba(15,28,47,.94); backdrop-filter: blur(15px); box-shadow: 0 20px 50px rgba(0,0,0,.3); color: white; animation: float 4s ease-in-out infinite; }
-    .floating-note small { display: block; color: var(--cyan); font-size: .6rem; font-weight: 900; letter-spacing: .1em; }
-    .floating-note strong { display: block; margin-top: 3px; font-size: .76rem; }
-
-    .trust { padding: 30px 0; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .trust-item { padding: 16px 18px; border-left: 1px solid var(--line); }
-    .trust-item:first-child { border-left: 0; }
-    .trust-item b { display: block; font-size: 1.25rem; letter-spacing: -.03em; }
-    .trust-item span { color: var(--muted); font-size: .72rem; font-weight: 750; }
-
-    .section { padding: 112px 0 0; }
-    .section-head { display: grid; grid-template-columns: 1fr .75fr; align-items: end; gap: 55px; }
-    h2 { margin: 0; max-width: 750px; font-size: clamp(2.5rem, 4.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; }
-    .section-head > p { margin: 0 0 7px; color: var(--muted); }
-    .service-grid { margin-top: 45px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .service { position: relative; padding: 35px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: 0 18px 60px rgba(7,17,31,.055); }
-    .service::after { content: attr(data-number); position: absolute; top: -35px; right: 12px; color: #f0f3f8; font-size: 8rem; line-height: 1; font-weight: 950; }
-    .service-icon { position: relative; z-index: 1; width: 47px; height: 47px; display: grid; place-items: center; border-radius: 14px; background: #eaf0ff; color: var(--blue); font-weight: 900; }
-    .service.ecom .service-icon { background: #e3fafa; color: #087f7c; }
-    .service h3 { position: relative; z-index: 1; margin: 25px 0 6px; font-size: 1.55rem; letter-spacing: -.035em; }
-    .service > p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: .88rem; }
-    .service ul { position: relative; z-index: 1; margin: 25px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-    .service li { display: flex; gap: 8px; color: #3c4b60; font-size: .78rem; font-weight: 700; }
-    .service li::before { content: "✓"; color: var(--blue); font-weight: 950; }
-    .service.ecom li::before { color: #079995; }
-    .service-packages { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .package { padding: 21px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.025); }
-    .package small { color: var(--cyan); font-size: .61rem; font-weight: 900; letter-spacing: .1em; }
-    .package h3 { margin: 9px 0 5px; font-size: 1rem; }
-    .package p { margin: 0; color: var(--muted); font-size: .75rem; }
-
-    .case-section { padding-bottom: 112px; }
-    .case-grid { margin-top: 45px; display: grid; grid-template-columns: 1.12fr .88fr; gap: 22px; }
-    .case { min-height: 340px; padding: 31px; border-radius: 24px; overflow: hidden; background: white; border: 1px solid var(--line); }
-    .case.large { grid-row: span 2; min-height: 704px; color: white; background: var(--panel); border: 0; }
-    .case-label { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: .64rem; font-weight: 950; letter-spacing: .1em; text-transform: uppercase; }
-    .large .case-label { color: var(--cyan); }
-    .case-label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-    .case h3 { margin: 18px 0 7px; font-size: 1.65rem; letter-spacing: -.04em; }
-    .case p { margin: 0; color: var(--muted); font-size: .86rem; }
-    .large p { color: #9caac0; }
-    .project-meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 7px; }
-    .project-meta span { padding: 5px 8px; border-radius: 7px; background: #f1f4f9; color: #64738a; font-size: .58rem; font-weight: 850; }
-    .large .project-meta span { background: rgba(255,255,255,.07); color: #a9b7ca; }
-    .inbox-preview { margin-top: 30px; border-radius: 17px; overflow: hidden; background: #f7f9fc; color: var(--text); transform: rotate(-1deg); box-shadow: 0 26px 65px rgba(0,0,0,.25); }
-    .preview-top { padding: 13px 15px; display: flex; align-items: center; justify-content: space-between; background: white; border-bottom: 1px solid var(--line); font-size: .62rem; font-weight: 900; }
-    .preview-search { width: 45%; height: 22px; border-radius: 7px; background: #eef2f7; }
-    .preview-mail { padding: 13px 15px; display: grid; grid-template-columns: 8px 1fr auto; gap: 11px; align-items: start; border-bottom: 1px solid #e7ecf3; }
-    .preview-mail i { width: 7px; height: 7px; margin-top: 5px; border-radius: 50%; background: var(--blue); }
-    .preview-mail strong { display: block; font-size: .65rem; }
-    .preview-mail span { display: block; color: var(--muted); font-size: .56rem; }
-    .preview-mail time { color: var(--muted); font-size: .52rem; }
-    .workflow { margin-top: 35px; }
-    .workflow-step { position: relative; padding: 0 0 25px 38px; }
-    .workflow-step::before { content: ""; position: absolute; left: 12px; top: 22px; bottom: 0; width: 1px; background: rgba(255,255,255,.14); }
-    .workflow-step:last-child::before { display: none; }
-    .workflow-step > i { position: absolute; left: 0; top: 0; width: 25px; height: 25px; border-radius: 8px; display: grid; place-items: center; background: rgba(201,255,95,.12); color: var(--lime); font-size: .58rem; font-style: normal; font-weight: 900; }
-    .workflow-step strong { display: block; font-size: .75rem; }
-    .workflow-step span { color: #8190a7; font-size: .62rem; }
-    .mini-tracker { margin-top: 24px; border: 1px solid var(--line); border-radius: 13px; overflow: hidden; }
-    .mini-row { padding: 10px 12px; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); font-size: .64rem; }
-    .mini-row:last-child { border: 0; }
-    .mini-row b { font-size: .67rem; }
-    .reply { margin-top: 24px; padding: 15px; border-radius: 13px; background: #f5f8fc; color: #526177; font-size: .68rem; }
-    .reply b { display: block; margin-bottom: 5px; color: var(--text); }
-    .project-button { margin-top: 22px; padding: 0; border: 0; background: transparent; color: var(--cyan); font-size: .72rem; font-weight: 900; cursor: pointer; }
-    .project-button::after { content: " →"; display: inline-block; transition: transform .2s ease; }
-    .project-button:hover::after { transform: translateX(5px); }
-
-    .approach { padding: 0 0 112px; }
-    .approach-wrap { padding: 48px; border: 1px solid var(--line); border-radius: 27px; background: rgba(16,28,45,.64); }
-    .approach-grid { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .approach-step { padding: 23px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.025); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
-    .approach-step:hover { transform: translateY(-6px); border-color: rgba(39,217,212,.45); background: rgba(39,217,212,.055); }
-    .approach-step b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(102,131,255,.14); color: #aebcff; font-size: .72rem; }
-    .approach-step h3 { margin: 18px 0 6px; font-size: 1rem; }
-    .approach-step p { margin: 0; color: var(--muted); font-size: .78rem; }
-
-    .project-dialog { width: min(620px, calc(100% - 32px)); padding: 0; border: 1px solid rgba(164,186,220,.22); border-radius: 23px; background: #0d1a2c; color: var(--text); box-shadow: 0 35px 120px rgba(0,0,0,.7); }
-    .project-dialog::backdrop { background: rgba(1,5,11,.72); backdrop-filter: blur(8px); }
-    .dialog-inner { padding: 34px; }
-    .dialog-close { float: right; width: 37px; height: 37px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--text); cursor: pointer; }
-    .dialog-kicker { color: var(--cyan); font-size: .68rem; font-weight: 900; letter-spacing: .12em; }
-    .dialog-inner h2 { margin-top: 18px; font-size: clamp(2rem, 5vw, 3rem); }
-    .dialog-inner p { color: var(--muted); }
-    .dialog-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-    .dialog-list li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.03); color: #c7d4e7; font-size: .8rem; }
-
-    .about-wrap { padding: 76px; display: grid; grid-template-columns: 280px 1fr; gap: 65px; align-items: center; border-radius: 30px; color: white; background: var(--ink); }
-    .photo-card { position: relative; }
-    .photo-card img { width: 100%; height: 390px; display: block; object-fit: cover; object-position: center 20%; border-radius: 23px; filter: saturate(.9); }
-    .photo-card::after { content: "2+ YEARS\A DATA HANDLING"; white-space: pre; position: absolute; right: -25px; bottom: 25px; padding: 14px 16px; border-radius: 13px; background: var(--lime); color: var(--ink); font-size: .65rem; line-height: 1.45; font-weight: 950; letter-spacing: .08em; box-shadow: 0 16px 40px rgba(0,0,0,.25); }
-    .about-copy .eyebrow { color: var(--cyan); }
-    .about-copy h2 { font-size: clamp(2.4rem, 4vw, 4rem); }
-    .about-copy > p:not(.eyebrow) { color: #aab7c9; }
-    .experience { margin-top: 25px; padding: 20px; border: 1px solid rgba(255,255,255,.11); border-radius: 15px; background: rgba(255,255,255,.055); }
-    .experience small { color: var(--cyan); font-size: .62rem; font-weight: 900; letter-spacing: .1em; }
-    .experience strong { display: block; margin-top: 7px; }
-    .experience span { display: block; color: #92a0b4; font-size: .7rem; }
-    .tools { padding: 38px 0 0; }
-    .tool-list { display: flex; flex-wrap: wrap; gap: 9px; }
-    .tool-list span { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #4d5c72; font-size: .72rem; font-weight: 800; }
-
-    .availability-panel { margin-top: 35px; padding: 23px; display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; border: 1px solid rgba(54,207,124,.26); border-radius: 17px; background: rgba(54,207,124,.055); }
-    .availability-panel .live-dot { margin-left: 4px; }
-    .availability-panel b { display: block; font-size: .86rem; }
-    .availability-panel span { display: block; color: var(--muted); font-size: .72rem; }
-    .availability-panel .btn { min-height: 43px; padding-inline: 15px; background: var(--lime); color: var(--ink); }
-
-    .faq { padding: 112px 0 0; }
-    .faq-grid { margin-top: 37px; display: grid; grid-template-columns: .82fr 1.18fr; gap: 58px; align-items: start; }
-    .faq-intro { color: var(--muted); }
-    .faq-list { display: grid; gap: 10px; }
-    .faq-item { border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); overflow: hidden; }
-    .faq-item summary { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; color: var(--text); font-size: .86rem; font-weight: 850; list-style: none; }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: "+"; color: var(--cyan); font-size: 1.22rem; font-weight: 400; transition: transform .2s ease; }
-    .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-item p { margin: 0; padding: 0 20px 19px; color: var(--muted); font-size: .79rem; }
-
-    .contact { margin: 112px auto 30px; padding: 69px; border-radius: 30px; display: grid; grid-template-columns: .9fr 1.1fr; align-items: start; gap: 52px; color: white; background: linear-gradient(135deg, #3657e9, #523bd0); overflow: hidden; position: relative; }
-    .contact::after { content: "@"; position: absolute; right: 35px; top: -115px; color: rgba(255,255,255,.06); font-size: 19rem; font-weight: 950; }
-    .contact > * { position: relative; z-index: 1; }
-    .contact .eyebrow { color: #d7ddff; }
-    .contact p:not(.eyebrow) { max-width: 640px; color: #d9dfff; }
-    .contact .btn { background: var(--lime); color: var(--ink); }
-    .contact-details { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.2); display: flex; flex-wrap: wrap; gap: 25px; color: #d9dfff; font-size: .78rem; }
-    .inquiry-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .inquiry-form .full { grid-column: 1/-1; }
-    .inquiry-form label { display: grid; gap: 6px; color: #e5e9ff; font-size: .69rem; font-weight: 850; }
-    .inquiry-form input, .inquiry-form select, .inquiry-form textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 11px; outline: 0; background: rgba(7,17,31,.25); color: white; font: inherit; font-size: .78rem; }
-    .inquiry-form input::placeholder, .inquiry-form textarea::placeholder { color: #b8c2ec; }
-    .inquiry-form select option { color: #152238; }
-    .inquiry-form input:focus, .inquiry-form select:focus, .inquiry-form textarea:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(201,255,95,.14); }
-    .inquiry-form textarea { min-height: 102px; resize: vertical; }
-    .form-note { grid-column: 1/-1; margin: 2px 0 0; color: #d9dfff; font-size: .67rem; }
-    .email-copy { margin-left: -11px; padding: 4px 8px; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; background: transparent; color: #eef1ff; cursor: pointer; font-size: .62rem; font-weight: 800; }
-    .email-copy:hover { background: rgba(255,255,255,.1); }
-    .footer-links { display: flex; align-items: center; gap: 13px; }
-    .footer-links a { color: var(--muted); }
-    .footer-links a:hover { color: var(--cyan); }
-    footer { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); font-size: .74rem; }
-
-    .reveal { opacity: 0; transform: translateY(25px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal.visible .service:nth-child(2), .reveal.visible .case:nth-child(2) { transition-delay: .1s; }
-    .back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 60; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(201,255,95,.45); border-radius: 14px; background: rgba(10,20,34,.88); box-shadow: 0 14px 35px rgba(0,0,0,.28); color: var(--lime); cursor: pointer; opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .25s ease, transform .25s ease, background .2s ease; }
-    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    .back-to-top:hover { background: var(--lime); color: var(--ink); }
-    .welcome-card { position: fixed; z-index: 70; left: 22px; bottom: 22px; width: min(350px, calc(100% - 82px)); padding: 17px 18px; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: start; border: 1px solid rgba(164,186,220,.2); border-radius: 16px; background: rgba(13,26,44,.94); box-shadow: 0 20px 60px rgba(0,0,0,.35); backdrop-filter: blur(18px); opacity: 0; transform: translateY(18px) scale(.96); pointer-events: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
-    .welcome-card.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-    .welcome-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 11px; background: rgba(201,255,95,.14); color: var(--lime); font-size: .84rem; font-weight: 950; }
-    .welcome-card small { display: block; color: var(--cyan); font-size: .58rem; font-weight: 900; letter-spacing: .1em; }
-    .welcome-card strong { display: block; margin-top: 2px; font-size: .79rem; }
-    .welcome-card p { margin: 3px 0 0; color: #aab9cd; font-size: .68rem; line-height: 1.45; }
-    .welcome-close { width: 25px; height: 25px; border: 0; border-radius: 8px; background: transparent; color: #aab9cd; cursor: pointer; font-size: 1rem; line-height: 1; }
-    .welcome-close:hover { background: rgba(255,255,255,.08); color: white; }
-    body.light-mode { --paper: #edf3fb; --white: #ffffff; --text: #102038; --muted: #5c6e86; --line: #d5dfeb; background: #edf3fb; }
-    body.light-mode::before { opacity: .18; }
-    body.light-mode .nav-wrap { background: rgba(237,243,251,.76); }
-    body.light-mode .service, body.light-mode .case, body.light-mode .approach-wrap { background: #ffffff; }
-    body.light-mode .case.large, body.light-mode .about-wrap { background: #102038; }
-    body.light-mode .project-dialog { background: #ffffff; }
-    body.light-mode .dialog-list li { background: #f5f8fc; color: #33435b; }
-    @keyframes pulse { 50% { box-shadow: 0 0 0 10px rgba(54,207,124,0); } }
-    @keyframes float { 50% { transform: translateY(-8px); } }
-    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
-    @keyframes hero-copy-in { from { opacity: 0; transform: translateY(22px); } }
-    @keyframes hero-panel-in { from { opacity: 0; transform: translateY(26px) scale(.97); } }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; padding-block: 65px 85px; }
-      .hero-copy { max-width: 760px; }
-      .command-center { max-width: 720px; width: 100%; margin: auto; }
-      .section-head { grid-template-columns: 1fr; gap: 18px; }
-      .case-grid { grid-template-columns: 1fr 1fr; }
-      .case.large { grid-column: 1/-1; grid-row: auto; min-height: 0; display: grid; grid-template-columns: .75fr 1.25fr; gap: 30px; }
-      .inbox-preview { margin-top: 0; }
-      .workflow { grid-column: 1/-1; }
-      .about-wrap { padding: 55px; grid-template-columns: 230px 1fr; }
-      .photo-card img { height: 340px; }
-      .faq-grid { grid-template-columns: 1fr; gap: 20px; }
-    }
-
-    @media (max-width: 700px) {
-      .shell { width: calc(100% - 32px); }
-      nav { height: 68px; }
-      .nav-links { display: none; }
-      .menu-toggle { display: grid; }
-      .nav-cta { display: none; }
-      .hero { width: calc(100% - 14px); min-height: 0; margin-top: 7px; padding: 49px 21px 64px; border-radius: 24px; gap: 42px; }
-      h1 { font-size: clamp(3.35rem, 16vw, 5rem); }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .window-body { grid-template-columns: 56px 1fr; min-height: 430px; }
-      .sidebar { padding-inline: 7px; }
-      .avatar { width: 39px; height: 39px; }
-      .side-icon { width: 36px; }
-      .workspace { padding: 16px 12px; }
-      .stat-row { gap: 6px; }
-      .stat { padding: 9px; }
-      .stat b { font-size: .93rem; }
-      .floating-note { right: 8px; bottom: -36px; width: 190px; }
-      .back-to-top { right: 14px; bottom: 14px; }
-      .welcome-card { left: 14px; bottom: 14px; }
-      .trust { grid-template-columns: 1fr 1fr; }
-      .trust-item:nth-child(3) { border-left: 0; }
-      .section { padding-top: 85px; }
-      .service-grid, .case-grid { grid-template-columns: 1fr; }
-      .service-packages { grid-template-columns: 1fr; }
-      .service { padding: 27px; }
-      .service ul { grid-template-columns: 1fr; }
-      .case.large { grid-column: auto; display: block; min-height: 0; }
-      .inbox-preview { margin-top: 28px; transform: none; }
-      .about-wrap { padding: 28px 22px; grid-template-columns: 1fr; }
-      .photo-card { max-width: 320px; }
-      .photo-card img { height: 390px; }
-      .contact { width: calc(100% - 14px); margin-top: 85px; padding: 48px 23px; grid-template-columns: 1fr; }
-      .contact-details { grid-column: auto; display: grid; }
-      .availability-panel { grid-template-columns: auto 1fr; }
-      .availability-panel .btn { grid-column: 1/-1; }
-      .faq { padding-top: 85px; }
-      .inquiry-form { grid-template-columns: 1fr; }
-      .inquiry-form .full { grid-column: auto; }
-      .approach-wrap { padding: 28px 22px; }
-      .approach-grid { grid-template-columns: 1fr; }
-      footer { padding: 28px 0; flex-direction: column; text-align: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-
-    /* DARK NEON EDITION */
-    :root {
-      --paper: #050b14;
-      --white: #101b2b;
-      --text: #f0f5ff;
-      --muted: #93a3ba;
-      --line: rgba(164, 186, 220, .14);
-      --blue: #6683ff;
-    }
-    body {
-      background:
-        radial-gradient(circle at 8% 18%, rgba(72,108,255,.12), transparent 27rem),
-        radial-gradient(circle at 92% 50%, rgba(39,217,212,.08), transparent 30rem),
-        #050b14;
-      color: var(--text);
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      z-index: 0;
-      inset: -20%;
-      pointer-events: none;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(72,108,255,.07), rgba(39,217,212,.04), transparent 28%, rgba(201,255,95,.04), rgba(72,108,255,.07));
-      filter: blur(80px);
-      animation: aurora 18s linear infinite;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      z-index: 0;
-      inset: 0;
-      pointer-events: none;
-      opacity: .16;
-      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: radial-gradient(circle at center, black, transparent 82%);
-    }
-    .nav-wrap, main, footer { position: relative; z-index: 2; }
-    .nav-wrap { border-color: var(--line); background: rgba(5,11,20,.72); }
-    .nav-cta { background: var(--lime); color: var(--ink); box-shadow: 0 0 28px rgba(201,255,95,.16); }
-    .scroll-progress { position: fixed; z-index: 100; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--cyan), var(--lime)); box-shadow: 0 0 16px var(--cyan); }
-    .cursor-glow { position: fixed; z-index: 1; left: 0; top: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; pointer-events: none; opacity: .18; background: radial-gradient(circle, rgba(102,131,255,.5), transparent 65%); filter: blur(20px); transform: translate3d(-1000px,-1000px,0); }
-    .hero { border: 1px solid rgba(164,186,220,.15); box-shadow: inset 0 1px rgba(255,255,255,.06), 0 45px 120px rgba(0,0,0,.35); }
-    .hero::after { content: ""; position: absolute; width: 330px; height: 330px; right: -100px; top: -110px; border-radius: 50%; border: 1px solid rgba(39,217,212,.17); box-shadow: 0 0 0 55px rgba(39,217,212,.025), 0 0 0 110px rgba(102,131,255,.018); animation: orbit 13s ease-in-out infinite alternate; }
-    h1 span { text-shadow: 0 0 35px rgba(201,255,95,.16); }
-    .btn-primary { position: relative; overflow: hidden; }
-    .btn-primary::after { content: ""; position: absolute; inset: -60% auto -60% -45%; width: 38%; transform: rotate(20deg); background: rgba(255,255,255,.5); filter: blur(8px); animation: shine 4.5s ease-in-out infinite; }
-    .app-window { background: #0a1422; border-color: rgba(164,186,220,.18); box-shadow: 0 45px 130px rgba(0,0,0,.62), 0 0 55px rgba(72,108,255,.10); }
-    .window-bar { background: #101c2d; border-color: var(--line); }
-    .window-body { background: #0a1422; }
-    .workspace-head strong, .panel-title { color: #edf3ff; }
-    .demo-pill { background: rgba(102,131,255,.14); color: #9badff; }
-    .stat, .panel-card { background: #101c2d; border-color: var(--line); }
-    .mail, .order, .preview-mail { border-color: var(--line); }
-    .mail-icon { background: rgba(102,131,255,.14); color: #9badff; }
-    .week > span, .orders-head { border-color: var(--line); background: #0c1726; }
-    .schedule { background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, rgba(164,186,220,.1) 40px); }
-    .schedule::after { background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), rgba(164,186,220,.1) 20%); }
-    .trust { border-bottom: 1px solid var(--line); }
-    .trust-item { border-color: var(--line); }
-    .service, .case { background: linear-gradient(145deg, rgba(17,30,49,.94), rgba(9,18,31,.94)); border-color: rgba(164,186,220,.15); box-shadow: inset 0 1px rgba(255,255,255,.04), 0 24px 70px rgba(0,0,0,.23); transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transform-style: preserve-3d; transition: transform .16s ease, border-color .25s ease, box-shadow .25s ease; }
-    .service:hover, .case:not(.large):hover { border-color: rgba(102,131,255,.48); box-shadow: 0 26px 75px rgba(0,0,0,.35), 0 0 38px rgba(102,131,255,.09); }
-    .service::after { color: rgba(255,255,255,.025); }
-    .service-icon { background: rgba(102,131,255,.13); color: #9badff; box-shadow: inset 0 0 0 1px rgba(102,131,255,.18); }
-    .service.ecom .service-icon { background: rgba(39,217,212,.11); color: var(--cyan); }
-    .service > p, .case p { color: var(--muted); }
-    .service li { color: #c2cde0; }
-    .case.large { background: linear-gradient(145deg, #101f36, #07111f); border: 1px solid rgba(164,186,220,.14); }
-    .project-meta span, .tool-list span { background: rgba(255,255,255,.05); border: 1px solid var(--line); color: #aab8cb; }
-    .inbox-preview { background: #091321; color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,.46), 0 0 40px rgba(102,131,255,.06); }
-    .preview-top { background: #101c2d; border-color: var(--line); }
-    .preview-search { background: #1a2940; }
-    .mini-tracker { border-color: var(--line); }
-    .mini-row { border-color: var(--line); }
-    .reply { background: rgba(255,255,255,.05); color: #aebcd0; }
-    .reply b { color: #edf3ff; }
-    .about-wrap { border: 1px solid rgba(164,186,220,.15); background: radial-gradient(circle at 5% 50%, rgba(102,131,255,.15), transparent 32%), #07111f; box-shadow: 0 35px 100px rgba(0,0,0,.32); }
-    .photo-card img { border: 1px solid rgba(255,255,255,.16); box-shadow: 0 30px 70px rgba(0,0,0,.4); }
-    .contact { box-shadow: 0 35px 100px rgba(40,49,170,.32); background: radial-gradient(circle at 15% 0, rgba(39,217,212,.24), transparent 35%), linear-gradient(135deg, #293fae, #5125a5); }
-    .contact::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.08) 48%, transparent 66%); transform: translateX(-100%); animation: sweep 8s ease-in-out infinite; }
-    .contact .btn { box-shadow: 0 18px 45px rgba(201,255,95,.18); }
-    @keyframes aurora { to { transform: rotate(360deg) scale(1.08); } }
-    @keyframes orbit { to { transform: translate(-45px,35px) scale(1.08); } }
-    @keyframes shine { 0%,65% { left: -45%; } 88%,100% { left: 130%; } }
-    @keyframes sweep { 0%,65% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-    @media (max-width: 700px) { .cursor-glow { display: none; } .service, .case { transform: none !important; } }
-
-    /* The command-center preview keeps its own dark surface in both color themes. */
-    body.light-mode .app-window,
-    body.light-mode .window-body { color: #edf3ff; }
-    body.light-mode .workspace-head small,
-    body.light-mode .stat small,
-    body.light-mode .mail small,
-    body.light-mode .order small,
-    body.light-mode .mail time,
-    body.light-mode .week > span,
-    body.light-mode .orders-head { color: #9baac0; }
-    body.light-mode .stat b,
-    body.light-mode .mail strong,
-    body.light-mode .order strong,
-    body.light-mode .panel-title { color: #edf3ff; }
-    body.light-mode .welcome-card { color: #edf3ff; }
-    body.light-mode .welcome-card strong { color: #ffffff; }
-    body.light-mode .welcome-card p { color: #c5d1e3; }
-    body.light-mode .welcome-close { color: #c5d1e3; }
-    body.light-mode .schedule { background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, rgba(164,186,220,.16) 40px); }
-    body.light-mode .schedule::after { background: repeating-linear-gradient(to right, transparent 0, transparent calc(20% - 1px), rgba(164,186,220,.16) 20%); }
-  </style>
+  <meta name="twitter:title" content="Joseph Berin | Amazon VA & SEO Support">
+  <meta name="twitter:description" content="Listing research, reporting, inventory tracking, and SEO support from the Philippines.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Joseph Nacion Berin","url":"https://josephberinyourva.site/","jobTitle":"Amazon Virtual Assistant & SEO Support","email":"josephberin12356@gmail.com","sameAs":["https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693"]}</script>
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="nav-wrap">
-    <nav class="shell" aria-label="Main navigation">
-      <a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a>
-      <div class="nav-tools"><div class="nav-links"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a></div><button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">☰</button><a class="nav-cta" href="mailto:josephberin12356@gmail.com">Let’s talk ↗</a></div>
-    </nav><div class="mobile-menu" id="mobile-menu"><a href="#services">Services</a><a href="#work">Sample work</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact me ↗</a></div>
-  </div>
-
-  <main>
-    <section class="hero" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="Joseph Berin home"><span class="brand-mark">JB<span>.</span></span><span>Joseph Berin</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Work samples</a><a href="#tools">Tools</a><a class="nav-contact" href="#contact">Let’s connect</a></nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mobile-nav shell" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#about">About</a><a href="#services">Services</a><a href="#work">Work samples</a><a href="#tools">Tools</a><a href="#contact">Let’s connect</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero shell" id="home">
       <div class="hero-copy">
-        <p class="availability"><span class="live-dot"></span> Available for remote opportunities</p>
-        <h1>Calm systems.<br><span>Clear results.</span></h1>
-        <p>I help busy executives and growing online stores stay organized—from schedules and inboxes to products, orders, and customer support.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="mailto:josephberin12356@gmail.com?subject=Virtual%20Assistant%20Opportunity">✉ Work with me</a>
-          <a class="btn btn-ghost btn-upwork" href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener">View my Upwork profile ↗</a>
-          <a class="btn btn-ghost" href="#work">Explore sample work ↓</a>
-        </div>
-        <div class="hero-meta"><span>⌖ Iloilo City, Philippines</span><span>◷ <time id="manila-time">GMT+8</time> · Flexible remote support</span></div>
+        <p class="eyebrow">YOUR NEXT VIRTUAL ASSISTANT</p>
+        <h1>Hi, I’m Joseph<span>.</span></h1>
+        <p class="hero-role">Amazon Virtual Assistant<br><span>& SEO Support</span></p>
+        <p class="hero-intro">Helping online businesses turn product research, listing details, and search data into clear, organized next steps.</p>
+        <div class="actions"><a class="button primary" href="#work">Explore my work</a><a class="button secondary" href="#contact">Let’s work together</a></div>
+        <div class="hero-meta"><span>Iloilo City, Philippines</span><span>Remote · GMT+8</span></div>
       </div>
-
-      <div class="command-center" aria-label="Interactive sample workspace">
-        <div class="app-window">
-          <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="window-title">Joseph’s VA Command Center</span><span></span></div>
-          <div class="window-body">
-            <aside class="sidebar" aria-label="Demo workspace tabs" role="tablist">
-              <img class="avatar" src="joseph-berin.jpeg" alt="Joseph Nacion Berin">
-              <button class="side-icon active" type="button" data-tab="inbox" aria-controls="inbox" aria-selected="true" aria-label="Show inbox demo" role="tab" title="Inbox">✉</button>
-              <button class="side-icon" type="button" data-tab="calendar" aria-controls="calendar" aria-selected="false" aria-label="Show calendar demo" role="tab" title="Calendar">▦</button>
-              <button class="side-icon" type="button" data-tab="store" aria-controls="store" aria-selected="false" aria-label="Show store demo" role="tab" title="Store">▣</button>
-            </aside>
-
-            <div class="workspace">
-              <div class="workspace-head"><div><small>Good morning</small><strong>Here’s today at a glance.</strong></div><span class="demo-pill">SAMPLE WORKSPACE</span></div>
-
-              <div class="tab-panel active" id="inbox" role="tabpanel">
-                <div class="stat-row"><div class="stat"><small>Priority</small><b>3</b></div><div class="stat"><small>Follow-ups</small><b>4</b></div><div class="stat"><small>Organized</small><b class="green">✓</b></div></div>
-                <div class="panel-card">
-                  <div class="panel-title">Priority inbox <span>View all →</span></div>
-                  <div class="mail"><span class="mail-icon">AC</span><div><strong>Schedule confirmation</strong><small>Client meeting · action needed</small></div><time>9:12</time></div>
-                  <div class="mail"><span class="mail-icon">OP</span><div><strong>Order status request</strong><small>Customer support · reply drafted</small></div><time>8:45</time></div>
-                  <div class="mail"><span class="mail-icon">TM</span><div><strong>Weekly team update</strong><small>Summary and next steps</small></div><time>8:10</time></div>
-                </div>
-              </div>
-
-              <div class="tab-panel" id="calendar" role="tabpanel">
-                <div class="panel-card">
-                  <div class="panel-title">Weekly calendar <span>September 7–11</span></div>
-                  <div class="week"><span></span><span>MON 07</span><span>TUE 08</span><span>WED 09</span><span>THU 10</span><span>FRI 11</span></div>
-                  <div class="schedule"><div class="time-list"><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span></div><span class="event e1">Team sync</span><span class="event e2">Focus block</span><span class="event e3">Client call</span><span class="event e4">Review</span></div>
-                </div>
-              </div>
-
-              <div class="tab-panel" id="store" role="tabpanel">
-                <div class="stat-row"><div class="stat"><small>New orders</small><b>12</b></div><div class="stat"><small>To ship</small><b>5</b></div><div class="stat"><small>Low stock</small><b>2</b></div></div>
-                <div class="panel-card">
-                  <div class="panel-title">Order monitor <span>Sample data</span></div>
-                  <div class="orders-head"><span>Order</span><span>Customer</span><span>Status</span></div>
-                  <div class="order"><div><strong>#1048</strong><small>Canvas Tote</small></div><small>M. Santos</small><span class="tag shipped">Shipped</span></div>
-                  <div class="order"><div><strong>#1049</strong><small>Desk Lamp</small></div><small>A. Cruz</small><span class="tag processing">Processing</span></div>
-                  <div class="order"><div><strong>#1050</strong><small>Daily Planner</small></div><small>J. Reyes</small><span class="tag new">New</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="floating-note"><small>EXECUTIVE + E-COMMERCE VA</small><strong>Detail-focused support, organized around your business.</strong></div>
+      <div class="portrait-wrap">
+        <div class="portrait-frame"><img src="joseph.webp" width="720" height="900" alt="Joseph Nacion Berin in professional business attire" fetchpriority="high"></div>
+        <div class="portrait-note"><span class="note-icon" aria-hidden="true">✓</span><div><strong>Careful with the details.</strong><span>Clear with the next steps.</span></div></div>
+        <span class="portrait-caption">JOSEPH NACION BERIN / AMAZON VA + SEO</span>
       </div>
     </section>
-
-    <section class="trust shell" aria-label="Professional strengths">
-      <div class="trust-item"><b>2+ years</b><span>Data-handling experience</span></div>
-      <div class="trust-item"><b>Executive</b><span>Administrative support</span></div>
-      <div class="trust-item"><b>E-commerce</b><span>Store operations support</span></div>
-      <div class="trust-item"><b>Reliable</b><span>Organized communication</span></div>
+    <div class="focus-strip"><div class="shell focus-inner"><span>FOCUSED SUPPORT FOR</span><strong>Amazon sellers</strong><i aria-hidden="true"></i><strong>E-commerce brands</strong><i aria-hidden="true"></i><strong>Growing websites</strong></div></div>
+    <section class="section about" id="about">
+      <div class="shell about-grid">
+        <div><p class="eyebrow">01 / ABOUT ME</p><h2>An organized partner<br>behind your business.</h2><div class="experience"><p class="small-label">MY BACKGROUND</p><h3>Data Encoder</h3><p>Coca-Cola Europacific Aboitiz Philippines</p><span>February 2023 – November 2025</span></div></div>
+        <div class="about-copy"><p>I’m Joseph, a detail-oriented Virtual Assistant from the Philippines, now focused on Amazon support and SEO.</p><p>My data encoding background taught me to check information carefully, keep records organized, and follow a consistent process. I bring that same approach to product listings, research, spreadsheets, and website content.</p><p>I’m ready to learn your systems, work from clear priorities, and keep you updated on what’s done and what needs attention.</p><div class="strength-grid"><div><h3>Detail-oriented</h3><p>Accurate data and careful reviews.</p></div><div><h3>Organized</h3><p>Readable trackers and documentation.</p></div><div><h3>Research-minded</h3><p>Findings with practical next steps.</p></div><div><h3>Communicative</h3><p>Clear updates and early questions.</p></div></div></div>
+      </div>
     </section>
-
-    <section class="section shell reveal" id="services">
-      <div class="section-head"><div><p class="eyebrow">01 · Services</p><h2>Support that gives you room to lead and grow.</h2></div><p>I handle the organized, behind-the-scenes work so you can focus on decisions, customers, and momentum.</p></div>
+    <section class="section shell" id="services">
+      <div class="section-head"><div><p class="eyebrow">02 / SERVICES</p><h2>Less on your plate.<br>More clarity in your business.</h2></div><p>Focused help with the research, content, and daily checks that keep your store and website moving.</p></div>
       <div class="service-grid">
-        <article class="service" data-number="01"><div class="service-icon">✓</div><h3>Executive Assistance</h3><p>Reliable daily support for busy professionals and growing teams.</p><ul><li>Inbox organization</li><li>Calendar management</li><li>Meeting coordination</li><li>Research &amp; data gathering</li><li>File organization</li><li>Travel research</li></ul></article>
-        <article class="service ecom" data-number="02"><div class="service-icon">▣</div><h3>E-commerce Assistance</h3><p>Accurate store support from product listing to customer follow-up.</p><ul><li>Product listings</li><li>Competitor research</li><li>Inventory monitoring</li><li>Order tracking</li><li>Customer support</li><li>Store data entry</li></ul></article>
-      </div>
-      <div class="service-packages" aria-label="Ways I can support your business"><article class="package"><small>ONGOING SUPPORT</small><h3>Admin Support</h3><p>For recurring inbox, calendar, document, and data-management tasks.</p></article><article class="package"><small>STORE SUPPORT</small><h3>E-commerce Operations</h3><p>For product data, order tracking, inventory checks, and customer follow-up.</p></article><article class="package"><small>FOCUSED HELP</small><h3>Task-Based Support</h3><p>For a defined research, cleanup, tracker, or organization project.</p></article></div>
-    </section>
-
-    <section class="section case-section shell reveal" id="work">
-      <div class="section-head"><div><p class="eyebrow">02 · Sample Work</p><h2>Realistic systems, built for real work.</h2></div><p>These self-initiated practice projects demonstrate how I organize information, prioritize tasks, and support day-to-day operations.</p></div>
-      <div class="case-grid">
-        <article class="case large">
-          <div><span class="case-label">Practice project</span><h3>Executive Inbox &amp; Daily Workflow</h3><p>A simple system for sorting messages, identifying priorities, drafting replies, and tracking follow-ups.</p><div class="project-meta"><span>Gmail</span><span>Google Calendar</span><span>Google Sheets</span></div></div>
-          <div class="inbox-preview"><div class="preview-top"><span>Priority Inbox</span><span class="preview-search"></span><span>3 open</span></div><div class="preview-mail"><i></i><div><strong>Approve Q3 meeting schedule</strong><span>Draft agenda and time options prepared</span></div><time>9:12</time></div><div class="preview-mail"><i></i><div><strong>Travel options for Manila</strong><span>Three options compared by time and cost</span></div><time>8:36</time></div><div class="preview-mail"><i></i><div><strong>Client follow-up</strong><span>Professional response ready for review</span></div><time>8:04</time></div></div>
-          <div class="workflow"><div class="workflow-step"><i>1</i><strong>Review and categorize</strong><span>Urgent, action needed, waiting, and reference.</span></div><div class="workflow-step"><i>2</i><strong>Prepare next actions</strong><span>Draft replies, create calendar holds, and log follow-ups.</span></div><div class="workflow-step"><i>3</i><strong>Send a clear summary</strong><span>Priorities, decisions needed, and completed items.</span></div></div><button class="project-button" type="button" data-project="inbox">See workflow details</button>
-        </article>
-        <article class="case"><span class="case-label">Practice project</span><h3>Inventory &amp; Order Tracker</h3><p>A clean spreadsheet view for stock levels, order status, and low-stock alerts.</p><div class="project-meta"><span>Google Sheets</span><span>Data entry</span></div><div class="mini-tracker"><div class="mini-row"><span>Canvas Tote</span><b>42</b><span class="tag shipped">In stock</span></div><div class="mini-row"><span>Desk Lamp</span><b>8</b><span class="tag processing">Low stock</span></div><div class="mini-row"><span>Daily Planner</span><b>31</b><span class="tag shipped">In stock</span></div></div><button class="project-button" type="button" data-project="tracker">See tracker details</button></article>
-        <article class="case"><span class="case-label">Practice project</span><h3>Customer Reply Library</h3><p>Friendly, professional response templates for order updates, returns, and product questions.</p><div class="project-meta"><span>Customer support</span><span>Canva</span></div><div class="reply"><b>Order update</b>Hi Alex, thank you for reaching out. I checked your order and it is now on the way. I’ll be happy to help if you need anything else.</div><button class="project-button" type="button" data-project="replies">See reply details</button></article>
+        <article class="service-card"><span class="service-number">01</span><p class="small-label">AMAZON VA</p><h3>Listings & research</h3><p>Well-organized product information that helps shoppers understand what you sell.</p><ul><li>Listing audits and content drafts</li><li>Keyword and competitor research</li><li>Product data organization</li><li>Title and bullet point improvements</li></ul></article>
+        <article class="service-card"><span class="service-number">02</span><p class="small-label">AMAZON VA</p><h3>Operations & reporting</h3><p>Keep routine checks and performance data in a format you can act on.</p><ul><li>Inventory and reorder trackers</li><li>Seller Central monitoring support</li><li>PPC search term and metric reviews</li><li>Weekly summaries and task logs</li></ul></article>
+        <article class="service-card"><span class="service-number">03</span><p class="small-label">SEO SUPPORT</p><h3>Keywords & content</h3><p>Connect useful content with the questions your customers are asking.</p><ul><li>Search intent and keyword mapping</li><li>Content briefs and outlines</li><li>Page title and description drafts</li><li>Internal linking recommendations</li></ul></article>
+        <article class="service-card"><span class="service-number">04</span><p class="small-label">SEO SUPPORT</p><h3>Audits & tracking</h3><p>Turn website checks into a prioritized, easy-to-follow action list.</p><ul><li>On-page SEO reviews</li><li>Content and broken-link checks</li><li>Search Console reporting support</li><li>SEO issue and progress trackers</li></ul></article>
       </div>
     </section>
-
-    <section class="shell approach reveal" aria-labelledby="approach-heading"><div class="approach-wrap"><p class="eyebrow">03 · Working style</p><h2 id="approach-heading">A simple rhythm for dependable support.</h2><div class="approach-grid"><article class="approach-step"><b>01</b><h3>Align first</h3><p>I clarify priorities, preferred tools, and what “done” looks like before I start.</p></article><article class="approach-step"><b>02</b><h3>Keep it visible</h3><p>Tasks, updates, and follow-ups are organized so nothing gets lost in the day.</p></article><article class="approach-step"><b>03</b><h3>Close the loop</h3><p>You receive a concise update with completed work and the next action needed.</p></article></div></div></section>
-
-    <section class="shell reveal" id="about">
-      <div class="about-wrap">
-        <div class="photo-card"><img src="joseph-berin.jpeg" alt="Joseph Nacion Berin wearing professional business attire"></div>
-        <div class="about-copy"><p class="eyebrow">04 · About Me</p><h2>Careful with the details. Committed to the outcome.</h2><p>I’m Joseph, a detail-oriented and tech-savvy Virtual Assistant from the Philippines. My data encoding background strengthened the skills that matter in remote support: accuracy, consistency, organization, and responsible handling of business information.</p><p>I’m ready to learn your systems, communicate clearly, and become the dependable support behind your day-to-day operations.</p><div class="experience"><small>RELEVANT EXPERIENCE</small><strong>Data Encoder · Coca-Cola Europacific Aboitiz Philippines</strong><span>February 2023 — November 2025</span></div><div class="availability-panel"><span class="live-dot" aria-hidden="true"></span><div><b>Open to remote opportunities</b><span>Part-time or full-time support · GMT+8 · Flexible schedule</span></div><a class="btn" href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a discovery call ↗</a></div></div>
+    <section class="section work-section" id="work">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>A closer look at my approach.</h2></div><p>Practical examples of how I organize information, review details, and turn findings into recommendations.</p></div>
+        <div class="work-toolbar"><p class="demo-note"><span aria-hidden="true">ⓘ</span> Practice projects · Fictional brands and sample data · No client results claimed</p><div class="filters" role="group" aria-label="Filter work samples"><button class="filter active" type="button" data-filter="all" aria-pressed="true">All work</button><button class="filter" type="button" data-filter="amazon" aria-pressed="false">Amazon VA</button><button class="filter" type="button" data-filter="seo" aria-pressed="false">SEO</button></div></div>
+        <p id="filter-status" class="sr-only" aria-live="polite"></p>
+        <div class="work-grid">
+          <article class="work-card" data-category="amazon"><a class="preview preview-listing" href="amazon-listing-audit.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>LISTING REVIEW</span><span>HAVEN & GRAIN</span></div><div class="listing-heading">Bamboo Drawer Organizer</div><div class="audit-row"><span>Title clarity</span><b class="review">Revise</b></div><div class="audit-row"><span>Product details</span><b class="review">Revise</b></div><div class="audit-row"><span>Keyword relevance</span><b class="good">Reviewed</b></div><div class="preview-bottom">PRIORITY: DIMENSIONS + FIT INFORMATION</div></a><div class="work-body"><p class="small-label">AMAZON / LISTING OPTIMIZATION</p><h3><a href="amazon-listing-audit.html">Amazon listing audit</a></h3><p>A practical listing review with a rewritten title, clearer bullet points, and an image checklist.</p><div class="work-footer"><span>Practice project</span><a href="amazon-listing-audit.html">View sample<span class="sr-only">: Amazon listing audit</span></a></div></div></article>
+          <article class="work-card" data-category="amazon"><a class="preview preview-ppc" href="amazon-ppc-report.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>SPONSORED PRODUCTS</span><span>4 CAMPAIGNS</span></div><div class="preview-metrics"><div><span>AD SPEND</span><b>$920</b></div><div><span>AD SALES</span><b>$3,900</b></div><div><span>ACOS</span><b>23.2%</b></div></div><div class="bar-list"><div><span>Branded</span><i style="--bar:27%"></i><b>10.9%</b></div><div><span>Exact</span><i style="--bar:46%"></i><b>18.5%</b></div><div><span>Auto</span><i style="--bar:85%"></i><b>33.9%</b></div><div><span>Broad</span><i style="--bar:100%"></i><b>40.0%</b></div></div><div class="preview-bottom">MOCK DATA / ACOS BY CAMPAIGN</div></a><div class="work-body"><p class="small-label">AMAZON / PPC ANALYSIS</p><h3><a href="amazon-ppc-report.html">PPC performance report</a></h3><p>A campaign summary with checked metrics, search term observations, and suggested next steps.</p><div class="work-footer"><span>Practice project</span><a href="amazon-ppc-report.html">View sample<span class="sr-only">: PPC performance report</span></a></div></div></article>
+          <article class="work-card" data-category="amazon"><a class="preview preview-inventory" href="inventory-tracker.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>INVENTORY MONITOR</span><span>3 PRODUCTS</span></div><div class="mini-table"><div><b>SKU</b><b>Days left</b><b>Status</b></div><div><span>HG-ORG-01</span><span>16</span><b class="review">Reorder</b></div><div><span>HG-RACK-02</span><span>45</span><b class="good">Healthy</b></div><div><span>HG-TRAY-03</span><span>14</span><b class="review">Reorder</b></div></div><div class="inventory-note"><strong>2 SKUs to review</strong><span>Lead time + safety buffer checked.</span></div><div class="preview-bottom">MOCK DATA / REORDER PLANNING</div></a><div class="work-body"><p class="small-label">AMAZON / STORE OPERATIONS</p><h3><a href="inventory-tracker.html">Inventory & reorder tracker</a></h3><p>A simple stock tracker that flags products needing attention before the next replenishment.</p><div class="work-footer"><span>Practice project</span><a href="inventory-tracker.html">View sample<span class="sr-only">: Inventory and reorder tracker</span></a></div></div></article>
+          <article class="work-card" data-category="seo"><a class="preview preview-keyword" href="seo-keyword-map.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>KEYWORD MAP</span><span>CEDAR DESK</span></div><div class="keyword-row"><span>BUY</span><div><strong>bamboo desk organizer</strong><small>Product collection</small></div></div><div class="keyword-row"><span>LEARN</span><div><strong>how to organize a small desk</strong><small>Helpful guide</small></div></div><div class="keyword-row"><span>COMPARE</span><div><strong>desk tray vs drawer organizer</strong><small>Comparison article</small></div></div><div class="preview-bottom">SEARCH INTENT / PAGE MAPPING</div></a><div class="work-body"><p class="small-label">SEO / KEYWORD RESEARCH</p><h3><a href="seo-keyword-map.html">Keyword research & page map</a></h3><p>Search intent groups mapped to useful pages, with research validation steps and content priorities.</p><div class="work-footer"><span>Practice project</span><a href="seo-keyword-map.html">View sample<span class="sr-only">: Keyword research and page map</span></a></div></div></article>
+          <article class="work-card" data-category="seo"><a class="preview preview-audit" href="seo-audit.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>ON-PAGE REVIEW</span><span>5 SAMPLE PAGES</span></div><div class="seo-audit-title">Small fixes. Clear priorities.</div><div class="seo-finding"><b>HIGH</b><span>Restore a broken product link</span></div><div class="seo-finding"><b>MEDIUM</b><span>Write distinct page titles</span></div><div class="seo-finding"><b>MEDIUM</b><span>Explain product dimensions</span></div><div class="preview-bottom">ISSUE / RECOMMENDATION / VALIDATION</div></a><div class="work-body"><p class="small-label">SEO / WEBSITE AUDIT</p><h3><a href="seo-audit.html">On-page SEO action plan</a></h3><p>A prioritized issue log covering page titles, headings, internal links, and product content.</p><div class="work-footer"><span>Practice project</span><a href="seo-audit.html">View sample<span class="sr-only">: On-page SEO action plan</span></a></div></div></article>
+          <article class="work-card" data-category="seo"><a class="preview preview-content" href="seo-content-brief.html" tabindex="-1" aria-hidden="true"><div class="preview-top"><span>CONTENT BRIEF</span><span>INFORMATIONAL</span></div><div class="content-heading">How to organize<br>a small desk</div><ol><li>Start with what you use daily</li><li>Choose storage that fits</li><li>Build a five-minute reset</li></ol><div class="preview-bottom">OUTLINE / META COPY / INTERNAL LINKS</div></a><div class="work-body"><p class="small-label">SEO / CONTENT PLANNING</p><h3><a href="seo-content-brief.html">Search-focused content brief</a></h3><p>A writer-ready outline with reader questions, metadata drafts, and a short original writing sample.</p><div class="work-footer"><span>Practice project</span><a href="seo-content-brief.html">View sample<span class="sr-only">: Search-focused content brief</span></a></div></div></article>
+        </div>
       </div>
-      <div class="tools"><p class="eyebrow">Tools I work with</p><div class="tool-list"><span>Google Workspace</span><span>Microsoft 365</span><span>Notion</span><span>Trello</span><span>Canva</span><span>ChatGPT</span><span>Slack</span><span>Zoom</span></div></div>
     </section>
-
-    <section class="shell faq reveal" id="faq"><div class="faq-grid"><div><p class="eyebrow">05 · FAQ</p><h2>Helpful details before we work together.</h2><p class="faq-intro">A quick overview of how I can support your day-to-day operations.</p></div><div class="faq-list"><details class="faq-item"><summary>What tasks can you support?</summary><p>I can support data entry, file organization, inbox and calendar coordination, research, basic customer support, product listing, and routine administrative tasks.</p></details><details class="faq-item"><summary>Which tools do you work with?</summary><p>I use Google Workspace, Microsoft 365, Notion, Trello, Canva, Slack, Zoom, and ChatGPT. I’m also comfortable learning client-specific systems.</p></details><details class="faq-item"><summary>How do you keep tasks organized?</summary><p>I use clear task lists, consistent file naming, status updates, and follow-up tracking so priorities and next steps are easy to see.</p></details><details class="faq-item"><summary>How can we start?</summary><p>Send a short message about the work you need help with. I’ll review the scope, clarify priorities, and we can arrange a discovery call if needed.</p></details></div></div></section>
-
-    <section class="contact shell reveal" id="contact"><div><p class="eyebrow">Let’s work together</p><h2>Ready for a calmer, more organized workday?</h2><p>Share what is taking up your time, and I’ll prepare a clear starting point for the conversation.</p><div class="actions"><a class="btn" href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a discovery call ↗</a></div></div><form class="inquiry-form" id="inquiry-form"><label>Your name<input name="name" required placeholder="Your name"></label><label>Email address<input name="email" type="email" required placeholder="you@company.com"></label><label class="full">What support do you need?<select name="service" required><option value="" selected disabled>Select a service</option><option>Administrative support</option><option>Data entry and file management</option><option>E-commerce support</option><option>Customer support</option><option>Other</option></select></label><label class="full">Tell me briefly about the work<textarea name="details" required placeholder="Tasks, timeline, and anything helpful to know"></textarea></label><button class="btn full" type="submit">Send inquiry by email ↗</button><p class="form-note">This opens your email app with the details already filled in—nothing is stored on this website.</p></form><div class="contact-details"><a href="mailto:josephberin12356@gmail.com">✉ josephberin12356@gmail.com</a><button class="email-copy" type="button" data-email="josephberin12356@gmail.com">Copy email</button><span>⌖ Iloilo City, Philippines</span><span>◷ GMT+8 · Remote</span></div></section>
+    <section class="section shell" id="tools">
+      <div class="tools-grid"><div><p class="eyebrow">04 / TOOLS & WORKFLOW</p><h2>Good tools.<br>A thoughtful process.</h2><p class="muted">I keep work easy to review, document the steps, and adapt to the tools your team already uses.</p></div><div><div class="tool-group"><h3>Everyday work & collaboration</h3><div class="tool-tags"><span>Google Sheets</span><span>Microsoft Excel</span><span>Google Docs</span><span>Notion</span><span>Trello</span><span>Canva</span><span>Slack</span><span>Zoom</span></div></div><div class="tool-group"><h3>Amazon & SEO workflow focus</h3><p>Seller Central · Amazon Ads reporting · Search Console · Keyword mapping · On-page checklists</p><p class="tool-note">Platform access and the workflow are agreed with each client. Sample projects use independently prepared demonstration data.</p></div></div></div>
+    </section>
+    <section class="process-section"><div class="shell"><div class="section-head"><div><p class="eyebrow">HOW WE WORK TOGETHER</p><h2>A clear process from day one.</h2></div></div><div class="process-grid"><div><span>01</span><h3>Understand the scope</h3><p>We agree on priorities, deliverables, access, and the review process.</p></div><div><span>02</span><h3>Research & organize</h3><p>I gather the information, check the details, and keep the work documented.</p></div><div><span>03</span><h3>Deliver & refine</h3><p>You get a readable handoff, progress updates, and clear next steps.</p></div></div></div></section>
+    <section class="section shell faq-section" id="faq"><div class="faq-grid"><div><p class="eyebrow">A FEW HELPFUL DETAILS</p><h2>Before we get started.</h2></div><div class="faq-list"><details><summary>Are these real client projects?</summary><p>These are practice projects using fictional brands and sample data. They show the structure and care I would bring to a task. They do not represent paid client work or verified business results.</p></details><details><summary>What is your experience in Amazon and SEO?</summary><p>My professional background is in data encoding and organized business support. I’m now focusing on Amazon VA and SEO tasks. The work samples demonstrate my approach; we can start with a clearly scoped task to check fit.</p></details><details><summary>Can you guarantee rankings or sales?</summary><p>No. Search rankings and sales depend on many factors. I can help with careful research, content, monitoring, and reporting, with recommendations reviewed against your business goals.</p></details><details><summary>How can we start?</summary><p>Send the task you need help with, your timeline, and the tools you use. We can arrange a discovery call and agree on a manageable first deliverable.</p></details></div></div></section>
+    <section class="contact-section" id="contact"><div class="shell contact-grid"><div class="contact-copy"><p class="eyebrow">05 / LET’S CONNECT</p><h2>Let’s make your<br>next task easier.</h2><p>Need a hand with your Amazon store or website SEO? Tell me what you’re working on.</p><a class="contact-email" href="mailto:josephberin12356@gmail.com">josephberin12356@gmail.com</a><button class="copy-email" type="button">Copy email</button><p class="copy-status" role="status"></p><a class="button light" href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener noreferrer">Book a discovery call</a><p class="contact-location">Iloilo City, Philippines · GMT+8<br>Part-time, full-time, or project-based support</p></div><form class="inquiry-form" id="inquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" required placeholder="Your name" maxlength="120"></label><label>Email address<input name="email" type="email" autocomplete="email" required placeholder="you@company.com" maxlength="254"></label></div><label>What do you need help with?<select name="service" required><option value="" selected disabled>Select a service</option><option>Amazon listings & research</option><option>Amazon operations & reporting</option><option>SEO keywords & content</option><option>SEO audit & tracking</option><option>Amazon VA + SEO support</option></select></label><label>A little about your project<textarea name="details" rows="4" required placeholder="Your goals, tasks, and timeline…" maxlength="2000"></textarea></label><button class="button light" type="submit">Prepare email inquiry</button><p class="form-note">Opens a draft in your email app. Review it and send it there. This website does not store your message.</p><p class="form-status" role="status"></p></form></div></section>
   </main>
-
-  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">JB</span><span>Joseph Berin</span></a><div class="footer-links"><a href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener">Upwork ↗</a><a href="https://calendly.com/josephberin12356/30min" target="_blank" rel="noopener">Book a call ↗</a></div><span>© 2026 Joseph Nacion Berin</span></footer>
-  <aside class="welcome-card" aria-live="polite" aria-label="Welcome message"><span class="welcome-mark">JB</span><div><small id="welcome-label">WELCOME</small><strong id="welcome-title">Thanks for stopping by.</strong><p>Explore the sample workflows or send me a message when you’re ready.</p></div><button class="welcome-close" type="button" aria-label="Close welcome message">×</button></aside>
-  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
-  <dialog class="project-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="dialog-close" type="button" aria-label="Close project details">×</button><span class="dialog-kicker">PRACTICE PROJECT</span><h2 id="dialog-title"></h2><p id="dialog-summary"></p><ul class="dialog-list" id="dialog-list"></ul></div></dialog>
-
-  <script>
-    const tabButtons = document.querySelectorAll('[data-tab]');
-    const panels = document.querySelectorAll('.tab-panel');
-
-      tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-        tabButtons.forEach(item => {
-          item.classList.remove('active');
-          item.setAttribute('aria-selected', 'false');
-        });
-        panels.forEach(panel => panel.classList.remove('active'));
-        button.classList.add('active');
-        button.setAttribute('aria-selected', 'true');
-        document.getElementById(button.dataset.tab).classList.add('active');
-      });
-    });
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: .12 });
-
-    document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
-
-    const sectionLinks = [...document.querySelectorAll('.nav-links a')];
-    const navObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        sectionLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
-      });
-    }, { rootMargin: '-35% 0px -55%', threshold: .01 });
-    document.querySelectorAll('#services, #work, #about').forEach(section => navObserver.observe(section));
-
-    const progress = document.querySelector('.scroll-progress');
-    const glow = document.querySelector('.cursor-glow');
-    let glowX = -1000, glowY = -1000, targetX = -1000, targetY = -1000;
-
-    window.addEventListener('scroll', () => {
-      const distance = document.documentElement.scrollHeight - innerHeight;
-      progress.style.width = `${distance > 0 ? (scrollY / distance) * 100 : 0}%`;
-      document.querySelector('.back-to-top').classList.toggle('visible', scrollY > 650);
-    }, { passive: true });
-
-    document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    const themeButton = document.querySelector('.theme-toggle');
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme === 'light') document.body.classList.add('light-mode');
-    themeButton.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      localStorage.setItem('portfolio-theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-    });
-
-    const menuButton = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    menuButton.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.textContent = open ? '×' : '☰';
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.textContent = '☰';
-    }));
-
-    const manilaTime = document.querySelector('#manila-time');
-    const updateManilaTime = () => {
-      manilaTime.textContent = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Manila', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date()) + ' GMT+8';
-    };
-    updateManilaTime();
-    setInterval(updateManilaTime, 30000);
-
-    const welcomeCard = document.querySelector('.welcome-card');
-    const welcomeTitle = document.querySelector('#welcome-title');
-    const welcomeLabel = document.querySelector('#welcome-label');
-    const greetingHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila', hour: 'numeric', hour12: false });
-    const greeting = Number(greetingHour) < 12 ? 'Good morning' : Number(greetingHour) < 18 ? 'Good afternoon' : 'Good evening';
-    welcomeLabel.textContent = `${greeting.toUpperCase()} · WELCOME`;
-    welcomeTitle.textContent = `${greeting}—thanks for visiting.`;
-    const dismissWelcome = () => welcomeCard.classList.remove('visible');
-    setTimeout(() => welcomeCard.classList.add('visible'), 650);
-    setTimeout(dismissWelcome, 7200);
-    document.querySelector('.welcome-close').addEventListener('click', dismissWelcome);
-
-    const projects = {
-      inbox: {
-        title: 'Executive Inbox & Daily Workflow',
-        summary: 'A practice workflow for turning a busy inbox into a short, useful list of priorities.',
-        items: ['Sort messages by urgency, owner, and next action.', 'Draft replies and prepare calendar holds for review.', 'Send a clear end-of-day summary with open items.']
-      },
-      tracker: {
-        title: 'Inventory & Order Tracker',
-        summary: 'A practice tracker designed to make store operations easier to scan and follow up.',
-        items: ['Keep product quantities and order status in one view.', 'Flag low-stock items for a timely review.', 'Use simple, consistent labels for handoffs and updates.']
-      },
-      replies: {
-        title: 'Customer Reply Library',
-        summary: 'A practice library of clear, friendly starting points for common customer questions.',
-        items: ['Create adaptable templates for order updates and returns.', 'Keep the tone helpful, professional, and easy to understand.', 'Leave room for a client’s own policies and approval process.']
-      }
-    };
-    const dialog = document.querySelector('.project-dialog');
-    document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
-      const project = projects[button.dataset.project];
-      document.querySelector('#dialog-title').textContent = project.title;
-      document.querySelector('#dialog-summary').textContent = project.summary;
-      document.querySelector('#dialog-list').innerHTML = project.items.map(item => `<li>${item}</li>`).join('');
-      dialog.showModal();
-    }));
-    document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-
-    document.querySelector('#inquiry-form').addEventListener('submit', event => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const subject = `Website inquiry: ${data.get('service')}`;
-      const body = `Hello Joseph,\n\nMy name is ${data.get('name')}.\nEmail: ${data.get('email')}\nSupport needed: ${data.get('service')}\n\nProject details:\n${data.get('details')}\n\nThank you.`;
-      window.location.href = `mailto:josephberin12356@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-
-    document.querySelector('[data-email]').addEventListener('click', async event => {
-      const button = event.currentTarget;
-      try {
-        await navigator.clipboard.writeText(button.dataset.email);
-        button.textContent = 'Copied!';
-      } catch {
-        button.textContent = button.dataset.email;
-      }
-      setTimeout(() => { button.textContent = 'Copy email'; }, 1800);
-    });
-
-    window.addEventListener('pointermove', event => {
-      targetX = event.clientX;
-      targetY = event.clientY;
-    }, { passive: true });
-
-    function animateGlow() {
-      glowX += (targetX - glowX) * .13;
-      glowY += (targetY - glowY) * .13;
-      glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
-      requestAnimationFrame(animateGlow);
-    }
-    animateGlow();
-
-    if (matchMedia('(pointer:fine)').matches) {
-      document.querySelectorAll('.service, .case:not(.large)').forEach(card => {
-        card.addEventListener('pointermove', event => {
-          const rect = card.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - .5;
-          const y = (event.clientY - rect.top) / rect.height - .5;
-          card.style.setProperty('--ry', `${x * 7}deg`);
-          card.style.setProperty('--rx', `${y * -7}deg`);
-        });
-        card.addEventListener('pointerleave', () => {
-          card.style.setProperty('--ry', '0deg');
-          card.style.setProperty('--rx', '0deg');
-        });
-      });
-    }
-  </script>
+  <footer class="shell footer"><a class="brand" href="#home"><span class="brand-mark">JB<span>.</span></span><span>Joseph Berin</span></a><p>Amazon VA & SEO Support</p><div><a href="https://www.upwork.com/freelancers/~01b0ec18f4e9bf7693" target="_blank" rel="noopener noreferrer">Upwork</a><a href="#contact">Contact</a></div><small>© <span id="year">2026</span> Joseph Nacion Berin</small></footer>
 </body>
 </html>

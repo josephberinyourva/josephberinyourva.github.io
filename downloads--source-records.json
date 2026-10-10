@@ -1,0 +1,210 @@
+{
+  "source": "Fictional practice brief; no live store data",
+  "snapshot": "2026-10-09",
+  "catalog": [
+    [
+      "AC-JAR-01",
+      "glass jar 900ml bamboo top",
+      "Glass Storage Jar with Bamboo Lid, 900 ml",
+      "AC-JAR-01",
+      14,
+      "",
+      "Confirm food-contact suitability; do not add airtight claim."
+    ],
+    [
+      "AC-TOTE-NT",
+      "TOTE BAG NATURAL cotton",
+      "Cotton Market Tote, Natural, 38 × 42 cm",
+      "AC-TOTE-NT",
+      18,
+      "",
+      "Capacity and care instructions not supplied."
+    ],
+    [
+      "AC-BOWL-SG",
+      "ceramic bowl green small 450",
+      "Ceramic Bowl, Sage, 450 ml",
+      "AC-BOWL-SG",
+      12,
+      "",
+      "Confirm microwave and dishwasher suitability."
+    ],
+    [
+      "AC-TWL-ST",
+      "tea towel stripe 2pcs",
+      "Cotton Tea Towels, Stripe, Set of 2",
+      "AC-TWL-ST",
+      16,
+      "",
+      "Care instructions not supplied."
+    ],
+    [
+      "AC-JAR-01",
+      "oak tray rectangular 30x20",
+      "Oak Serving Tray, 30 × 20 cm",
+      "AC-TRAY-OA",
+      28,
+      "",
+      "Approve replacement SKU before changing any identifier."
+    ],
+    [
+      "AC-MUG-CR",
+      "cream mug 300 ML",
+      "Ceramic Mug, Cream, 300 ml",
+      "AC-MUG-CR",
+      13,
+      "",
+      "Confirm care instructions."
+    ],
+    [
+      "AC-MAT-NT",
+      "table mat woven natural",
+      "Woven Placemat, Natural, 35 cm",
+      "AC-MAT-NT",
+      9,
+      "",
+      "Material composition not supplied."
+    ],
+    [
+      "AC-BSK-SM",
+      "basket small 20x15",
+      "Storage Basket, Natural, 20 × 15 cm",
+      "AC-BSK-SM",
+      22,
+      "",
+      "Confirm whether dimensions are external."
+    ]
+  ],
+  "orders": [
+    [
+      "AC-1041",
+      "Mia",
+      "In transit",
+      "Carrier scan October 8.",
+      "Monitor next scan.",
+      "Monitor",
+      "No",
+      "Open"
+    ],
+    [
+      "AC-1042",
+      "Alex",
+      "Address check",
+      "Unit number missing; not dispatched.",
+      "Confirm full address, request owner approval.",
+      "Today",
+      "Yes",
+      "Open"
+    ],
+    [
+      "AC-1043",
+      "Sam",
+      "Delivered",
+      "Delivered October 7.",
+      "No action required.",
+      "None",
+      "No",
+      "Closed"
+    ],
+    [
+      "AC-1044",
+      "Jordan",
+      "Follow up",
+      "Last carrier scan October 6.",
+      "Open carrier inquiry; share confirmed update.",
+      "Today",
+      "No",
+      "Open"
+    ],
+    [
+      "AC-1045",
+      "Taylor",
+      "Return request",
+      "Delivered October 3; requested October 9.",
+      "Confirm unused condition and return eligibility.",
+      "Today",
+      "Yes",
+      "Open"
+    ],
+    [
+      "AC-1046",
+      "Casey",
+      "Delivered",
+      "Delivered October 8.",
+      "No action required.",
+      "None",
+      "No",
+      "Closed"
+    ],
+    [
+      "AC-1047",
+      "Morgan",
+      "Packing",
+      "Payment confirmed; label not created.",
+      "Check SKU and quantity before packing.",
+      "Today",
+      "No",
+      "Open"
+    ],
+    [
+      "AC-1048",
+      "Jamie",
+      "Payment pending",
+      "No payment confirmation in sample record.",
+      "Check payment status before release.",
+      "Today",
+      "Yes",
+      "Open"
+    ]
+  ],
+  "stock": [
+    [
+      "AC-JAR-01",
+      18,
+      4,
+      6
+    ],
+    [
+      "AC-TOTE-NT",
+      7,
+      3,
+      5
+    ],
+    [
+      "AC-BOWL-SG",
+      12,
+      2,
+      4
+    ],
+    [
+      "AC-TWL-ST",
+      5,
+      1,
+      4
+    ],
+    [
+      "AC-TRAY-OA",
+      9,
+      2,
+      3
+    ],
+    [
+      "AC-MUG-CR",
+      15,
+      5,
+      5
+    ],
+    [
+      "AC-MAT-NT",
+      4,
+      4,
+      3
+    ],
+    [
+      "AC-BSK-SM",
+      null,
+      1,
+      2
+    ]
+  ]
+}

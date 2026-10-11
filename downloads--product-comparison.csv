@@ -1,4 +1,4 @@
-Product,Illustrative price USD,Material,Closure,Inner pocket,Weight,Brief fit,Next check
-Everyday tote,12,Cotton,Open,None,Not provided,Missing closure and pocket,Request dimensions care and weight
-Zip commuter,18,Polyester,Zip,One,Not provided,Meets closure and pocket requirements,Confirm weight before calling lightweight
-Market carryall,16,Cotton canvas,Snap,None,Not provided,Missing inner pocket,Request dimensions care and weight
+manufacturer_sku,product_name,dimensions_inches,material,care,source_url,review_date,proposed_category,review_note
+1130880,OXO Good Grips Wooden Corner Spoon,12.5 × 2.375 × 1.375,Beechwood,Hand wash,https://www.oxo.com/shop/kitchenware/utensils/spoons-scoopers/oxo-gg-wooden-corner-spoon.html,2026-10-11,Kitchen / Cooking utensils,Keep the corner shape in the title; do not replace it with a generic spoon label.
+1058024,OXO Good Grips Wooden Large Spoon,12.4 × 2.6 × 1.2,Beechwood,Hand wash,https://www.oxo.com/wooden-large-spoon.html,2026-10-11,Kitchen / Cooking utensils,Keep this separate from the corner spoon; the names and dimensions are different.
+1058021,OXO Good Grips Wooden Slotted Spoon,12 × 3 × 1,Beechwood,Hand wash,https://www.oxo.com/shop/kitchenware/cooking-baking/wooden-slotted-spoon-618.html,2026-10-11,Kitchen / Cooking utensils,The individual page lists 12 inches; the set page lists a 14-inch slotted spoon. Do not assume identical components.

@@ -1,0 +1,42 @@
+{
+  "review_date": "2026-10-11",
+  "method": "Public manufacturer pages retrieved through web research. No account or retailer backend access.",
+  "products": [
+    {
+      "name": "Wooden Corner Spoon",
+      "sku": "1130880",
+      "dimensions_in": "12.5 \u00d7 2.375 \u00d7 1.375",
+      "material": "Beechwood",
+      "care": "Hand wash",
+      "url": "https://www.oxo.com/shop/kitchenware/utensils/spoons-scoopers/oxo-gg-wooden-corner-spoon.html",
+      "image": "corner-spoon.jpg",
+      "note": "Keep the corner shape in the title; do not replace it with a generic spoon label."
+    },
+    {
+      "name": "Wooden Large Spoon",
+      "sku": "1058024",
+      "dimensions_in": "12.4 \u00d7 2.6 \u00d7 1.2",
+      "material": "Beechwood",
+      "care": "Hand wash",
+      "url": "https://www.oxo.com/wooden-large-spoon.html",
+      "image": "large-spoon.jpg",
+      "note": "Keep this separate from the corner spoon; the names and dimensions are different."
+    },
+    {
+      "name": "Wooden Slotted Spoon",
+      "sku": "1058021",
+      "dimensions_in": "12 \u00d7 3 \u00d7 1",
+      "material": "Beechwood",
+      "care": "Hand wash",
+      "url": "https://www.oxo.com/shop/kitchenware/cooking-baking/wooden-slotted-spoon-618.html",
+      "image": "slotted-spoon.jpg",
+      "note": "The individual page lists 12 inches; the set page lists a 14-inch slotted spoon. Do not assume identical components."
+    }
+  ],
+  "additional_source": {
+    "url": "https://www.oxo.com/3-piece-wooden-utensil-set.html",
+    "sku": "1256080",
+    "slotted_spoon_dimensions_inches": "14 \u00d7 3 \u00d7 1",
+    "note": "Different page and different sellable SKU; component equivalence unconfirmed."
+  }
+}

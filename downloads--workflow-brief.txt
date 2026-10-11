@@ -1,0 +1,32 @@
+REQUEST ROUTER — JOSEPH BERIN
+Independent browser prototype | October 11, 2026
+
+Problem: store inquiries arrive with missing details or require different next steps.
+Scope: validate inputs, prevent duplicate IDs, match sample orders, route requests,
+prepare template replies, and export a queue for human review.
+
+Sample data only:
+ORD-1001 / alex@example.com / Packed; waiting for carrier pickup
+ORD-1002 / sam@example.com / Delivered
+
+Decision rules:
+1. Missing request ID, valid email, or message: reject input.
+2. Existing request ID: keep original; flag duplicate or conflicting details.
+3. Missing order: request clarification.
+4. No exact order/email match: manual verification, no order details disclosed.
+5. Refund: owner approval; never issue or promise a refund automatically.
+6. Shipping: insert matched sample status into a response template.
+7. Other: manual review.
+Every reply is a draft. No customer message is sent.
+
+Implemented: HTML/CSS/JavaScript, in-memory queue, CSV export, input checks.
+No backend, live store connection, AI inference, or persistent record storage.
+Classification uses the chosen request type, not message interpretation.
+
+Next version to validate:
+Form/inbox -> workflow tool -> approved order records -> AI draft -> review queue.
+Use AI for summarization and wording, with source facts and policies explicitly
+provided. Keep matching, refund authorization, and duplicate controls outside AI.
+Before deployment: verify app access, secure credentials, privacy, model output
+quality, retries, failure alerts, idempotency, and reviewer approval.
+Live integrations and platform competence are not demonstrated by this prototype.

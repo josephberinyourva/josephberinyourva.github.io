@@ -24,8 +24,8 @@
  document.addEventListener('pointerdown',e=>{if(e.button===0&&e.isPrimary!==false)impact(e.clientX,e.clientY);},{passive:true,capture:true});
  document.addEventListener('click',e=>{if(e.detail===0&&e.target instanceof Element){const r=e.target.getBoundingClientRect();if(r.width&&r.height)impact(r.left+r.width/2,r.top+r.height/2);}},{passive:true,capture:true});
  // Effects also appear inside a top-layer dialog, above its backdrop.
- const dialog=document.getElementById('game-dialog');
- if(dialog){const sync=()=>{if(dialog.open)dialog.append(layer);else document.body.append(layer);};new MutationObserver(sync).observe(dialog,{attributes:true,attributeFilter:['open']});}
+ const dialogs=[...document.querySelectorAll('dialog')];
+ if(dialogs.length){const sync=()=>{const open=dialogs.find(d=>d.open);(open||document.body).append(layer);};dialogs.forEach(dialog=>new MutationObserver(sync).observe(dialog,{attributes:true,attributeFilter:['open']}));}
  const hero=document.querySelector('.hero'),portrait=document.querySelector('.hero-portrait');
  if(hero&&portrait){let raf=0;hero.addEventListener('pointermove',e=>{if(quiet()||e.pointerType!=='mouse'||raf)return;const rect=hero.getBoundingClientRect(),x=((e.clientX-rect.left)/rect.width-.5)*9,y=((e.clientY-rect.top)/rect.height-.5)*7;raf=requestAnimationFrame(()=>{portrait.style.setProperty('--pointer-x',x+'px');portrait.style.setProperty('--pointer-y',y+'px');raf=0;});},{passive:true});hero.addEventListener('pointerleave',()=>{portrait.style.setProperty('--pointer-x','0px');portrait.style.setProperty('--pointer-y','0px');});}
 })();

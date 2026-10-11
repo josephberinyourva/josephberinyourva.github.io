@@ -1,0 +1,30 @@
+'use strict';
+const sampleOrders={'ORD-1001':{email:'alex@example.com',status:'Packed; waiting for carrier pickup'},'ORD-1002':{email:'sam@example.com',status:'Delivered'}};
+function routeRequest(input,queue){
+ const r=Object.fromEntries(Object.entries(input).map(([k,v])=>[k,String(v||'').trim()]));r.id=r.id.toUpperCase();r.order=r.order.toUpperCase();r.email=r.email.toLowerCase();
+ const prior=queue.find(x=>x.request.id===r.id);
+ const result={request:r,trace:['Request captured in this browser session.'],add:true};
+ function finish(route,title,reason,action,draft){return {...result,route,title,reason,action,draft};}
+ if(!r.id||!r.email||!r.message||!/^\S+@\S+\.\S+$/.test(r.email)){result.add=false;return finish('Validation','Required details missing','Add a request ID, valid email, and message.','Correct the input','No draft prepared.');}
+ if(prior){result.add=false;const same=['order','email','type','message'].every(k=>prior.request[k]===r[k]);result.trace.push('Existing request ID found; no second queue row added.');return finish(same?'Duplicate':'ID conflict',same?'Already in the queue.':'Same ID, different details.',same?'The original request is preserved.':'Check the original record before assigning a new request ID.','Review existing request','No additional draft prepared.');}
+ result.trace.push('Unique request ID confirmed.');
+ if(!r.order){result.trace.push('Order number missing; order lookup skipped.');return finish('Clarification','One detail needed first.','An order number is required before checking the order.','Request order number','Hi,\n\nThanks for reaching out. Could you share your order number so we can review your request?\n\nThank you.');}
+ const order=sampleOrders[r.order];
+ if(!order||order.email!==r.email){result.trace.push('No matching order and email pair found in the sample records.');return finish('Manual review','Check the order match.','Do not disclose order details without a matching record.','Verify order and customer','Hi,\n\nThanks for your message. Please confirm your order number and the email used at checkout so we can look into this.\n\nThank you.');}
+ result.trace.push('Exact order and email match found in the sample records.');
+ if(r.type==='refund'){result.trace.push('Refund rule matched; owner approval required.');return finish('Approval needed','A person makes this call.','No refund is issued or promised by this workflow.','Review policy and request','Hi,\n\nThanks for contacting us about your order. Your refund request needs a review against the store’s policy. We’ll review the details before confirming the next step.\n\nThank you.');}
+ if(r.type==='shipping'){result.trace.push('Shipping rule matched; approved sample status inserted into a template.','Draft held for a person to check before sending.');return finish('Ready for review','The draft is ready.', 'Only the status in the matching sample order is used. No delivery date is invented.','Review draft before sending',`Hi,\n\nThanks for checking on order ${r.order}. The current status in our records is: ${order.status}.\n\nThank you.`);}
+ result.trace.push('No standard route matched; assigned for manual review.');return finish('Manual review','Let’s review the request.','An open-ended question needs a person’s attention.','Review customer message','Hi,\n\nThanks for reaching out. We’ll review your question and confirm the next step.\n\nThank you.');
+}
+function queueCsv(queue){const cell=v=>'"'+String(/^[=+@\-\t\r]/.test(String(v))?"'"+v:v).replace(/"/g,'""')+'"';return [['Request ID','Order','Route','Next action','Customer message'],...queue.map(x=>[x.request.id,x.request.order,x.route,x.action,x.request.message])].map(row=>row.map(cell).join(',')).join('\r\n');}
+if(typeof module!=='undefined')module.exports={routeRequest,queueCsv};
+if(typeof document!=='undefined')(()=>{
+ const q=s=>document.querySelector(s);let queue=[];
+ const scenarios={shipping:['REQ-101','ORD-1001','alex@example.com','shipping','Could you check the shipping status of my order?'],refund:['REQ-102','ORD-1002','sam@example.com','refund','I would like to request a refund for my order.'],missing:['REQ-103','','alex@example.com','shipping','Where is my order?'],unknown:['REQ-104','ORD-9999','alex@example.com','shipping','Could you look up my order?']};
+ const ids=['#request-id','#order-id','#request-email','#request-type','#request-message'];
+ document.querySelectorAll('[data-scenario]').forEach(b=>b.addEventListener('click',()=>{scenarios[b.dataset.scenario].forEach((v,i)=>q(ids[i]).value=v);q('#request-id').focus();}));
+ function renderQueue(){q('#queue-body').replaceChildren();queue.forEach(x=>{const tr=document.createElement('tr');[x.request.id,x.request.order||'Not provided',x.route,x.action].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td);});q('#queue-body').append(tr);});q('#queue-summary').textContent=queue.length?`${queue.length} unique request${queue.length===1?'':'s'} queued. All actions await human review. Nothing has been sent.`:'No requests processed yet.';q('#export').disabled=q('#reset').disabled=!queue.length;}
+ q('#router-form').addEventListener('submit',e=>{e.preventDefault();const [id,order,email,type,message]=ids.map(s=>q(s).value);const x=routeRequest({id,order,email,type,message},queue);if(x.add)queue.push(x);q('#result-empty').hidden=true;q('#result-content').hidden=false;[['#route',x.route],['#result-title',x.title],['#result-reason',x.reason],['#response-draft',x.draft]].forEach(([s,v])=>q(s).textContent=v);q('#trace').replaceChildren();x.trace.forEach(v=>{const li=document.createElement('li');li.textContent=v;q('#trace').append(li);});renderQueue();});
+ q('#reset').addEventListener('click',()=>{queue=[];renderQueue();q('#result-content').hidden=true;q('#result-empty').hidden=false;});
+ q('#export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob(['\ufeff'+queueCsv(queue)],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='request-review-queue.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+})();

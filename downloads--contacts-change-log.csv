@@ -1,0 +1,37 @@
+Original row,Contact,Field,Before,After,Reason
+2,Maria Santos,Name,  maria santos,Maria Santos,"Trimmed spaces, fixed capitals"
+2,Maria Santos,Email,Maria.Santos@Example.com ,maria.santos@example.com,"Trimmed, lowercased"
+2,Maria Santos,Phone,0917 555 0101,+63 917 555 0101,One phone format
+2,Maria Santos,Signup date,03/02/2026,2026-03-02,One date format (YYYY-MM-DD)
+2,Maria Santos,Status,active,Active,Consistent status values
+3,John Reyes,Name,JOHN REYES,John Reyes,"Trimmed spaces, fixed capitals"
+3,John Reyes,Phone,+63-917-555-0102,+63 917 555 0102,One phone format
+3,John Reyes,Company,reyes print shop,Reyes Print Shop,"Trimmed spaces, fixed capitals"
+4,Ana Cruz,Phone,09175550103,+63 917 555 0103,One phone format
+4,Ana Cruz,Signup date,"Feb 20, 2026",2026-02-20,One date format (YYYY-MM-DD)
+4,Ana Cruz,Status,ACTIVE,Active,Consistent status values
+4,Ana Cruz,Notes,,Email looks incomplete,Flagged for client to confirm (not guessed)
+5,Maria Santos,Whole row,Duplicate of row 2,Removed,Same email as an earlier row
+6,Leo Garcia,Name,leo  garcia,Leo Garcia,"Trimmed spaces, fixed capitals"
+6,Leo Garcia,Phone,0917-555-0104,+63 917 555 0104,One phone format
+6,Leo Garcia,Signup date,2026/03/05,2026-03-05,One date format (YYYY-MM-DD)
+6,Leo Garcia,Status,inactive,Inactive,Consistent status values
+6,Leo Garcia,Notes,,Missing email,Flagged for client to confirm (not guessed)
+7,Grace Lim,Phone,917 555 0105,+63 917 555 0105,One phone format
+7,Grace Lim,Company,lim & co,Lim & Co,"Trimmed spaces, fixed capitals"
+7,Grace Lim,Signup date,5 Mar 2026,2026-03-05,One date format (YYYY-MM-DD)
+8,Paolo Mendoza,Email,PAOLO.MENDOZA@EXAMPLE.COM,paolo.mendoza@example.com,"Trimmed, lowercased"
+8,Paolo Mendoza,Phone,09175550106,+63 917 555 0106,One phone format
+8,Paolo Mendoza,Status,active ,Active,Consistent status values
+9,Ella Tan,Phone,0917 555 0107,+63 917 555 0107,One phone format
+9,Ella Tan,Company,  Tan Travel,Tan Travel,"Trimmed spaces, fixed capitals"
+9,Ella Tan,Signup date,03/12/2026,2026-03-12,One date format (YYYY-MM-DD)
+9,Ella Tan,Status,inactive,Inactive,Consistent status values
+10,John Reyes,Whole row,Duplicate of row 3,Removed,Same email as an earlier row
+11,Mark Villanueva,Status,pending,Pending,Consistent status values
+11,Mark Villanueva,Notes,,Missing phone,Flagged for client to confirm (not guessed)
+12,Joy Navarro,Phone,0917 555 0109,+63 917 555 0109,One phone format
+12,Joy Navarro,Company,navarro events,Navarro Events,"Trimmed spaces, fixed capitals"
+12,Joy Navarro,Signup date,"Mar 18, 2026",2026-03-18,One date format (YYYY-MM-DD)
+13,Carlo Bautista,Phone,+639175550110,+63 917 555 0110,One phone format
+13,Carlo Bautista,Status,actve,Active,Fixed typo

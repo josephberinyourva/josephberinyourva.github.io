@@ -1,0 +1,11 @@
+Name,Email,Phone,Company,Signup date,Status,Notes
+Maria Santos,maria.santos@example.com,+63 917 555 0101,Bloom Bakery,2026-03-02,Active,
+John Reyes,john.reyes@example.com,+63 917 555 0102,Reyes Print Shop,2026-02-14,Active,
+Ana Cruz,ana.cruz@example,+63 917 555 0103,Cruz Consulting,2026-02-20,Active,Email looks incomplete
+Leo Garcia,,+63 917 555 0104,Garcia Hardware,2026-03-05,Inactive,Missing email
+Grace Lim,grace.lim@example.com,+63 917 555 0105,Lim & Co,2026-03-05,Pending,
+Paolo Mendoza,paolo.mendoza@example.com,+63 917 555 0106,Mendoza Farms,2026-03-09,Active,
+Ella Tan,ella.tan@example.com,+63 917 555 0107,Tan Travel,2026-03-12,Inactive,
+Mark Villanueva,mark.v@example.com,,Villanueva Auto,2026-03-15,Pending,Missing phone
+Joy Navarro,joy.navarro@example.com,+63 917 555 0109,Navarro Events,2026-03-18,Active,
+Carlo Bautista,carlo.bautista@example.com,+63 917 555 0110,Bautista Builders,2026-03-20,Active,

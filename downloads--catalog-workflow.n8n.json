@@ -1,0 +1,361 @@
+{
+  "id": "publicCatalogReview001",
+  "name": "Public Catalog Review \u2014 adapted from n8n #18502",
+  "active": false,
+  "nodes": [
+    {
+      "id": "d59da7be-4331-40b9-9b9e-23556588ef1e",
+      "name": "Run catalog review",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        240
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "public-catalog-review",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "webhookId": "cf21e60e-ee6e-4033-8984-44d336c59b4d"
+    },
+    {
+      "id": "s1",
+      "name": "Settings",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        240,
+        240
+      ],
+      "parameters": {
+        "mode": "manual",
+        "options": {},
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a",
+              "name": "competitor_store",
+              "type": "string",
+              "value": "www.tentree.com"
+            },
+            {
+              "id": "b",
+              "name": "your_store",
+              "type": "string",
+              "value": "www.allbirds.com"
+            },
+            {
+              "id": "c",
+              "name": "products_per_store",
+              "type": "number",
+              "value": 12
+            }
+          ]
+        },
+        "includeOtherFields": false
+      },
+      "typeVersion": 3.4
+    },
+    {
+      "id": "204da72a-9247-498a-8dd3-306f4e4d9d0d",
+      "name": "Fetch Their Catalog",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        240
+      ],
+      "parameters": {
+        "url": "https://www.tentree.com/products.json?limit=12",
+        "options": {
+          "timeout": 20000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "id": "cd1",
+      "name": "Read Their Products",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        720,
+        240
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const cfg = $('Settings').first().json;\nconst store = String(cfg.competitor_store || '').trim();\n\n// single-item input: one fetch node, one store, one HTTP response. There is no\n// second item here to drop - the whole catalogue arrives inside this one body.\nlet payload = $input.first().json;\nif (typeof payload === 'string') {\n  try { payload = JSON.parse(payload); } catch (e) { payload = {}; }\n} else if (typeof payload.data === 'string') {\n  try { payload = JSON.parse(payload.data); } catch (e) { payload = {}; }\n}\n\n// A store that is not on Shopify answers 200 with a rendered page. Parsed\n// naively that is indistinguishable from an empty catalogue, which would read\n// as \"nothing new\" every single run.\nif (!payload || !Array.isArray(payload.products)) {\n  throw new Error(\n    store + ' did not return a Shopify catalogue. Check the domain is a Shopify ' +\n    'store and that ' + store + '/products.json opens in a browser.'\n  );\n}\n\nconst out = [];\nfor (const p of payload.products) {\n  const variants = Array.isArray(p.variants) ? p.variants : [];\n  const prices = variants\n    .map((v) => Number(v.price))\n    .filter((x) => !isNaN(x) && x > 0);\n  if (!prices.length) continue;\n\n  const inStock = variants.some((v) => v.available);\n  out.push({\n    side: 'theirs',\n    store,\n    handle: p.handle || '',\n    title: String(p.title || '').trim(),\n    product_type: String(p.product_type || '').split('>').pop().trim() || 'Uncategorised',\n    vendor: p.vendor || '',\n    price: Math.min.apply(null, prices),\n    price_max: Math.max.apply(null, prices),\n    variants: variants.length,\n    in_stock: inStock,\n    published_at: p.published_at || '',\n    url: 'https://' + store.replace(/^https?:\\/\\//, '').replace(/\\/$/, '') + '/products/' + (p.handle || ''),\n  });\n}\n\nif (!out.length) {\n  throw new Error(store + ' returned a Shopify catalogue with no priced products.');\n}\n\nreturn out.map((x) => ({ json: x }));"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "f0c4a676-9048-4c8f-b1fa-d3949d0f88bf",
+      "name": "Fetch Your Catalog",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        240
+      ],
+      "parameters": {
+        "url": "https://www.allbirds.com/products.json?limit=12",
+        "options": {
+          "timeout": 20000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "id": "cd2",
+      "name": "Read Your Products",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1200,
+        240
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const cfg = $('Settings').first().json;\nconst store = String(cfg.your_store || '').trim();\n\n// single-item input: one fetch node, one store, one HTTP response. There is no\n// second item here to drop - the whole catalogue arrives inside this one body.\nlet payload = $input.first().json;\nif (typeof payload === 'string') {\n  try { payload = JSON.parse(payload); } catch (e) { payload = {}; }\n} else if (typeof payload.data === 'string') {\n  try { payload = JSON.parse(payload.data); } catch (e) { payload = {}; }\n}\n\n// A store that is not on Shopify answers 200 with a rendered page. Parsed\n// naively that is indistinguishable from an empty catalogue, which would read\n// as \"nothing new\" every single run.\nif (!payload || !Array.isArray(payload.products)) {\n  throw new Error(\n    store + ' did not return a Shopify catalogue. Check the domain is a Shopify ' +\n    'store and that ' + store + '/products.json opens in a browser.'\n  );\n}\n\nconst out = [];\nfor (const p of payload.products) {\n  const variants = Array.isArray(p.variants) ? p.variants : [];\n  const prices = variants\n    .map((v) => Number(v.price))\n    .filter((x) => !isNaN(x) && x > 0);\n  if (!prices.length) continue;\n\n  const inStock = variants.some((v) => v.available);\n  out.push({\n    side: 'yours',\n    store,\n    handle: p.handle || '',\n    title: String(p.title || '').trim(),\n    product_type: String(p.product_type || '').split('>').pop().trim() || 'Uncategorised',\n    vendor: p.vendor || '',\n    price: Math.min.apply(null, prices),\n    price_max: Math.max.apply(null, prices),\n    variants: variants.length,\n    in_stock: inStock,\n    published_at: p.published_at || '',\n    url: 'https://' + store.replace(/^https?:\\/\\//, '').replace(/\\/$/, '') + '/products/' + (p.handle || ''),\n  });\n}\n\nif (!out.length) {\n  throw new Error(store + ' returned a Shopify catalogue with no priced products.');\n}\n\nreturn out.map((x) => ({ json: x }));"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "0d3797c0-1e73-4078-a2ae-b92d040ef6c2",
+      "name": "Read tentree currency",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        240
+      ],
+      "parameters": {
+        "url": "https://www.tentree.com/cart.js",
+        "options": {
+          "timeout": 20000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "id": "d9299575-6054-4264-bbab-4a6969f7967d",
+      "name": "Read Allbirds currency",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        240
+      ],
+      "parameters": {
+        "url": "https://www.allbirds.com/cart.js",
+        "options": {
+          "timeout": 20000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "id": "9efa30ab-e8d1-402d-9f39-863a35e5b934",
+      "name": "Review catalog and record baseline",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        240
+      ],
+      "parameters": {
+        "jsCode": "const recordsA = $('Fetch Their Catalog').first().json.products;\nconst recordsB = $('Fetch Your Catalog').first().json.products;\nconst currencyA = $('Read tentree currency').first().json.currency;\nconst currencyB = $('Read Allbirds currency').first().json.currency;\nif (!/^[A-Z]{3}$/.test(currencyA || '') || !/^[A-Z]{3}$/.test(currencyB || '')) throw new Error('A storefront did not report a valid currency.');\nconst capturedAt = new Date().toISOString();\nconst normalized = [...$('Read Their Products').all(), ...$('Read Your Products').all()].map(i=>i.json);\nconst audit = [];\nconst variants = [];\nfor (const [store, products, currency] of [['www.tentree.com',recordsA,currencyA],['www.allbirds.com',recordsB,currencyB]]) {\n const skus = new Map();\n for (const p of products) for (const v of p.variants || []) { if (v.sku) skus.set(v.sku,(skus.get(v.sku)||0)+1); }\n for (const p of products) {\n  const vs = p.variants || []; const flags=[];\n  const missingSku=vs.filter(v=>!String(v.sku||'').trim()).length;\n  const duplicateSku=vs.filter(v=>v.sku && skus.get(v.sku)>1).length;\n  const missingAlt=(p.images||[]).filter(i=>!String(i.alt||'').trim()).length;\n  if (missingSku) flags.push(missingSku+' variant(s): SKU absent in public feed');\n  if (duplicateSku) flags.push(duplicateSku+' variant(s): repeated SKU in captured feed');\n  if (!String(p.product_type||'').trim()) flags.push('Product type absent in public feed');\n  if (!String(p.body_html||'').replace(/<[^>]*>/g,'').trim()) flags.push('Description absent in public feed');\n  if (!(p.images||[]).length) flags.push('Images absent in public feed');\n  if (missingAlt) flags.push(missingAlt+' image(s): alt text absent in public feed');\n  const badPrices=vs.filter(v=>!Number.isFinite(Number(v.price))||Number(v.price)<=0).length;\n  if (badPrices) flags.push(badPrices+' variant(s): price requires review');\n  const priced=vs.map(v=>Number(v.price)).filter(v=>Number.isFinite(v)&&v>0);\n  const url='https://'+store+'/products/'+p.handle;\n  const row={store,productId:String(p.id),title:p.title,handle:p.handle,url,productType:p.product_type||'',currency,minPrice:priced.length?Math.min(...priced):null,maxPrice:priced.length?Math.max(...priced):null,variantCount:vs.length,availableVariants:vs.filter(v=>v.available).length,imageCount:(p.images||[]).length,missingAlt,missingSku,duplicateSku,reviewFlags:flags,status:flags.length?'Review public fields':'No flags in checked fields'};\n  audit.push(row);\n  for(const v of vs) variants.push({store,productId:String(p.id),productTitle:p.title,variantId:String(v.id),variantTitle:v.title,sku:v.sku||'',price:Number(v.price),currency,available:Boolean(v.available),option1:v.option1,option2:v.option2,option3:v.option3,sourceUrl:url});\n }\n}\nconst baseline=$('Read previous verified capture').first().json;\nconst previous=baseline.capturedAt ? baseline : null;const prices={};const changes=[];\nfor(const p of audit){const key=p.store+'|'+p.productId;prices[key]={minPrice:p.minPrice,currency:p.currency};const old=previous?.prices?.[key];if(old && old.currency===p.currency && old.minPrice!==p.minPrice)changes.push({title:p.title,url:p.url,previous:old.minPrice,current:p.minPrice,currency:p.currency});}\n// The preview server atomically persists the complete successful response as the next baseline.\nreturn [{json:{engine:'n8n',workflowId:'publicCatalogReview001',executionId:String($execution.id),capturedAt,sourceTemplate:{id:18502,creator:'Daniel Shashko',url:'https://n8n.io/workflows/18502-track-competitor-shopify-launches-and-pricing-with-bright-data-and-gmail/',adaptation:'Two catalog parser nodes preserved unchanged. Direct public GET replaces Bright Data; manual trigger, snapshot comparison and catalog QA replace Gmail delivery and Data Tables.'},scope:'First 12 products from each of two public storefront feeds. Independent research; neither brand is a client. Public feed gaps are review prompts, not confirmed storefront defects. No private inventory quantities, sales data, or customer records accessed.',sources:[{brand:'tentree',url:'https://www.tentree.com/products.json?limit=12',currencyUrl:'https://www.tentree.com/cart.js',currency:currencyA},{brand:'Allbirds',url:'https://www.allbirds.com/products.json?limit=12',currencyUrl:'https://www.allbirds.com/cart.js',currency:currencyB}],summary:{products:audit.length,variants:variants.length,productsForReview:audit.filter(p=>p.reviewFlags.length).length,missingSkuVariants:audit.reduce((s,p)=>s+p.missingSku,0),imagesWithoutAlt:audit.reduce((s,p)=>s+p.missingAlt,0),priceChanges:changes.length},comparison:{baselineAt:previous?.capturedAt||null,note:previous?'Compared only matching product IDs in the same currency against the previous local successful capture.':'First capture establishes a baseline. No historical price-change claim.',changes},audit,variants,normalized}}];"
+      }
+    },
+    {
+      "id": "6bb55f93-4076-4a46-b42b-e33c07a95121",
+      "name": "Return research report",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        2400,
+        240
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      }
+    },
+    {
+      "id": "44a402ef-8002-46ec-8668-277d8445dc6f",
+      "name": "Source and scope",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        -120
+      ],
+      "parameters": {
+        "content": "## Source: n8n library #18502\nBy Daniel Shashko. Read Their Products and Read Your Products are unchanged from the published template.\n\nAdapted for independent, on-demand research: direct public feeds, confirmed storefront currencies, catalog QA, local baseline, JSON response. No Gmail, paid proxy, or claimed brand affiliation.\n\nhttps://n8n.io/workflows/18502-track-competitor-shopify-launches-and-pricing-with-bright-data-and-gmail/",
+        "width": 650,
+        "height": 280
+      }
+    },
+    {
+      "id": "6a467d28-d2e7-45f3-91d8-b220a1d24df4",
+      "name": "Read previous verified capture",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        240
+      ],
+      "executeOnce": true,
+      "parameters": {
+        "url": "http://127.0.0.1:4173/api/baseline",
+        "options": {
+          "timeout": 5000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Run catalog review": {
+      "main": [
+        [
+          {
+            "node": "Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Settings": {
+      "main": [
+        [
+          {
+            "node": "Fetch Their Catalog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Their Catalog": {
+      "main": [
+        [
+          {
+            "node": "Read Their Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Their Products": {
+      "main": [
+        [
+          {
+            "node": "Fetch Your Catalog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Your Catalog": {
+      "main": [
+        [
+          {
+            "node": "Read Your Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Your Products": {
+      "main": [
+        [
+          {
+            "node": "Read tentree currency",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read tentree currency": {
+      "main": [
+        [
+          {
+            "node": "Read Allbirds currency",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Allbirds currency": {
+      "main": [
+        [
+          {
+            "node": "Read previous verified capture",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review catalog and record baseline": {
+      "main": [
+        [
+          {
+            "node": "Return research report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read previous verified capture": {
+      "main": [
+        [
+          {
+            "node": "Review catalog and record baseline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  },
+  "pinData": {},
+  "versionId": "8e6166ef-2529-4e40-862b-f421d15838c2"
+}
